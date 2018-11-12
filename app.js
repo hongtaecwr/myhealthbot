@@ -8,7 +8,7 @@ const
 
 const app = express();
 
-const client = new line.Client(config);
+const line_client = new line.Client(config);
 
 app.post('/webhook', line.middleware(config), (req, res) => {
     res.sendStatus(200)
@@ -34,11 +34,11 @@ function handleMessageEvent(event) {
         text: 'สวัสดีครัช'
     };
 
-    return client.replyMessage(event.replyToken, msg);
+    return line_client.replyMessage(event.replyToken, msg);
 }
 
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function () {
     console.log('run at port', app.get('port'));
-});
+}); 
