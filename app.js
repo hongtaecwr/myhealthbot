@@ -11,7 +11,6 @@ const app = express();
 const client = new line.Client(config);
 
 app.post('/webhook', line.middleware(config), (req, res) => {
-    res.sendStatus(200)
     Promise
         .all(req.body.events.map(handleEvent))
         .then((result) => res.json(result));
