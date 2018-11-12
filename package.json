@@ -1,0 +1,22 @@
+{
+  "name": "myhealthbot",
+  "version": "1.0.0",
+  "description": "My Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hongtaecwr/myhealthbot.git"
+  },
+  "author": "Chawarat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hongtaecwr/myhealthbot/issues"
+  },
+  "homepage": "https://github.com/hongtaecwr/myhealthbot#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
