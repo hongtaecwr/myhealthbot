@@ -46,7 +46,7 @@
       </fieldset>
 
       <fieldset>
-        <button type="button" onclick="search()" id="contact-submit">Submit</button>
+        <button type="button" onclick="search()" id="contact-submit">ไปจ้า</button>
       </fieldset>
       <p class="copyright">Created by <a href="https://dang-ai.herokuapp.com" target="_blank" title="Colorlib">Dang.ai</a></p>
     </form>
@@ -137,7 +137,7 @@
 
     function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://reply-msg-parse-server.herokuapp.com/parse/functions/' + methodName, true);
+      xhr.open('POST', 'https://reply-msg-server.herokuapp.com/parse/functions/' + methodName, true);
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
       xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
@@ -152,20 +152,7 @@
       xhr.send(requestMsg);
     }
 
-    function callSendAPI(messageData, responseMsg) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://graph.facebook.com/v2.6/me/messages?access_token=' + pageToken, true);
-      xhr.setRequestHeader('Content-type', 'application/json');
-      xhr.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          var myArr = JSON.parse(this.responseText);
-          responseMsg(myArr);
-        }
-      };
 
-      xhr.send(messageData);
-
-    }
   </script>
 
 
