@@ -1,5 +1,6 @@
   {
     "port" : "5000",
     "channelAccessToken": "4dp6crcQo9M/IA7toR7PP6sJmYLycqIZTiGYK1CZmuPArfcRgiam7/ko321x/q+ay8a4pmhYPqDLJ57eest5mKG9GHllv3Hu3UA7Ij/k8heqnjN29eEUEofB+4mj/BbsqY7uBDGkHBd7UmlxvSlvLwdB04t89/1O/w1cDnyilFU=",
-    "channelSecret": "1f501e35db47eec478355c9b3b2f2faa"
+    "channelSecret": "1f501e35db47eec478355c9b3b2f2faa",
+    "serverURL": "https://myhealthbot.herokuapp.com"
   }
