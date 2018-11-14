@@ -3,6 +3,7 @@ const
     express = require('express'),
     line = require('@line/bot-sdk'),
     config = require('./config.json'),
+    path = require('path'),
     _line_postback = require('./line_postback.js'),
     _postback = require('./postback.js'),
     _reply = require('./reply.js');
@@ -184,15 +185,6 @@ function handleEvent(event) {
 } //end HandleEvent    
 
 
-
-// function handleMessageEvent(event) {
-//     var msg = {
-//         type: 'text',
-//         text: 'สวัสดีครัช'
-//     };
-
-//     return line_client.replyMessage(event.replyToken, msg);
-// }
 
 app.set('port', (process.env.PORT || 5000));
 
