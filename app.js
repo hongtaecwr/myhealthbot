@@ -23,26 +23,52 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 
 ////line_client
-line_client.pushMessage(userId, {
-    type: 'text',
-    text: "กำลังค้นหา Quiz จากการร้องขอ.."
-})
-    .then(() => {
+app.get('/createquiz', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
+  });
+  app.get('/searchquiz', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/searchQuiz.html'));
+  });
+  app.get('/searchquizLine', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/searchQuizLine.html'));
+  });
+  app.get('/policy', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/policy.html'));
+  });
+  app.get('/bot-train', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/bottrain.html'));
+  });
+  app.get('/json-upload-to-parse', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/json-upload-to-parse.html'));
+  });
+  app.get('/push/userId=:userId&tags=:tags&limit=:limit', function(req, res) {
+    var userId = req.params.userId;
+    var tags = req.params.tags;
+    var limit = req.params.limit;
+    var data = '{"tags":' + tags + ',"limit":' + limit + ',"getTemp":' + true + '}'
+    console.log("push userId: " + userId + " limit :" + limit + " tags :" + tags + "\ndata:" + data);
+  
+    line_client.pushMessage(userId, {
+        type: 'text',
+        text: "กำลังค้นหา Quiz จากการร้องขอ.."
+      })
+      .then(() => {
         res.json("done");
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
         console.error("push error :" + err);
-    });
-
-_line_postback.getQuizsByTags(data, function (replyData) {
-    line_client.pushMessage(userId, replyData.results)
+      });
+  
+    _line_postback.getQuizsByTags(data, function(replyData) {
+      line_client.pushMessage(userId, replyData.results)
         .then(() => {
-            res.json("done");
+          res.json("done");
         })
         .catch((err) => {
-            console.error("push error :" + err);
+          console.error("push error :" + err);
         });
-});
+    });
+  });
 
 ////////////
 

@@ -1,11 +1,8 @@
 var _parseFunction = require('./parseFunction.js');
 var request = require('request');
+const config = require('./config.json');
 
-
-
-const SERVER_URL = (process.env.SERVER_URL) ?
-  (process.env.SERVER_URL) :
-  config.get('serverURL');
+const SERVER_URL = 'https://myhealthbot.herokuapp.com';
 
 module.exports = {
   process: function(userId, postbackData, replyData) {
