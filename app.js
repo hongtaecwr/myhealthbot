@@ -23,52 +23,52 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 
 ////line_client
-app.get('/createquiz', function(req, res) {
+app.get('/createquiz', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
-  });
-  app.get('/searchquiz', function(req, res) {
+});
+app.get('/searchquiz', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/searchQuiz.html'));
-  });
-  app.get('/searchquizLine', function(req, res) {
+});
+app.get('/searchquizLine', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/searchQuizLine.html'));
-  });
-  app.get('/policy', function(req, res) {
+});
+app.get('/policy', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/policy.html'));
-  });
-  app.get('/bot-train', function(req, res) {
+});
+app.get('/bot-train', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/bottrain.html'));
-  });
-  app.get('/json-upload-to-parse', function(req, res) {
+});
+app.get('/json-upload-to-parse', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/json-upload-to-parse.html'));
-  });
-  app.get('/push/userId=:userId&tags=:tags&limit=:limit', function(req, res) {
+});
+app.get('/push/userId=:userId&tags=:tags&limit=:limit', function (req, res) {
     var userId = req.params.userId;
     var tags = req.params.tags;
     var limit = req.params.limit;
     var data = '{"tags":' + tags + ',"limit":' + limit + ',"getTemp":' + true + '}'
     console.log("push userId: " + userId + " limit :" + limit + " tags :" + tags + "\ndata:" + data);
-  
+
     line_client.pushMessage(userId, {
         type: 'text',
         text: "กำลังค้นหา Quiz จากการร้องขอ.."
-      })
-      .then(() => {
-        res.json("done");
-      })
-      .catch((err) => {
-        console.error("push error :" + err);
-      });
-  
-    _line_postback.getQuizsByTags(data, function(replyData) {
-      line_client.pushMessage(userId, replyData.results)
+    })
         .then(() => {
-          res.json("done");
+            res.json("done");
         })
         .catch((err) => {
-          console.error("push error :" + err);
+            console.error("push error :" + err);
         });
+
+    _line_postback.getQuizsByTags(data, function (replyData) {
+        line_client.pushMessage(userId, replyData.results)
+            .then(() => {
+                res.json("done");
+            })
+            .catch((err) => {
+                console.error("push error :" + err);
+            });
     });
-  });
+});
 
 ////////////
 
@@ -94,26 +94,20 @@ function handleEvent(event) {
             case 'Start':
             case 'ไปเลย':
                 line_client.replyMessage(event.replyToken, [{
+                    type: "text",
+                    text: "ต้องการเล่น Quiz ให้พิมพ์ เล่น,เริ่ม,play,start หรือ กดปุ่ม เล่น Quiz ที่เมนู \n\nต้องการดูคำสั่งต่างๆ ให้พิมพ์  #help \n\nต้องการสร้างชุดคำถามกดปุ่ม สร้าง Quiz ที่เมนู\n\nคุณสามารถค้นหา Quiz ที่ต้องการเล่นเพียงกดปุ่ม ค้นหา Quiz เมื่อเริ่มเล่น Quiz \n\nสอนไอ้แดงให้ตอบโต้ พิมพ์\n  #ask (ข้อความที่1),(ข้อความที่..) #ans (คำตอบที่1),(คำตอบที่..)\n\n😁😁😁😁",
+                }, {
                     type: "template",
-                    altText: "this is a buttons template",
+                    altText: "วิธีสอนไอ้แดงพูด",
                     template: {
                         type: "buttons",
-                        thumbnailImageUrl: SERVER_URL + "/assets/dan.ai_cover_bg.jpg",
-                        title: "คุณต้องการทำอะไร?",
-                        text: "เลือกเมนูด้านล่าง",
+                        title: "สอนไอ้แดงให้พูด",
+                        text: "วิธีง่ายๆแค่กดปุ่มด้านล่าง",
                         actions: [{
-                            type: "postback",
-                            label: "เล่น Quiz",
-                            data: JSON.stringify({
-                                "type": "PLAY_QUIZ_PAYLOAD"
-                            })
-                        },
-                        {
                             "type": "uri",
-                            "label": "สร้าง Quiz",
-                            "uri": "https://dang-ai.herokuapp.com/createquiz"
-                        }
-                        ]
+                            "label": "สอนไอ้แดง",
+                            "uri": "https://myhealthbot.herokuapp.com/bot-train"
+                        }]
                     }
                 }]);
                 break;
@@ -134,7 +128,7 @@ function handleEvent(event) {
                         actions: [{
                             "type": "uri",
                             "label": "สอนไอ้แดง",
-                            "uri": "https://dang-ai.herokuapp.com/bot-train"
+                            "uri": "https://myhealthbot.herokuapp.com/bot-train"
                         }]
                     }
                 }]);
