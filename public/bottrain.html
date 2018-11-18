@@ -64,25 +64,7 @@
     var currentAnsString = "";
 
     var userId = '';
-    window.extAsyncInit = function() {
-      MessengerExtensions.getUserID(function success(uids) {
-        var psid = uids.psid;
-        userId = psid;
 
-      }, function error(err, errorMessage) {
-        // Error handling code
-      });
-    };
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'Messenger'));
 
     function search() {
       var msgDatas = currentAskString.split(",");
@@ -138,6 +120,7 @@
       xhr.open('POST', 'https://reply-msg-server.herokuapp.com/parse/functions/' + methodName, true);
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
 
       xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
