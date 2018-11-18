@@ -36,17 +36,17 @@
 
     <form id="contact" action="" method="post">
 
-      <label id="label-tags" for="ask-tags">พูดว่า:</label>
+      <label id="label-tags" for="ask-tags">สอนบอทว่า :</label>
       <fieldset class="form-group">
         <input type="text" id="ask-tags" tabindex="1" value="" required>
       </fieldset>
-      <label id="label-tags" for="ans-tags">ตอบว่า:</label>
+      <label id="label-tags" for="ans-tags">ให้บอทตอบว่า :</label>
       <fieldset class="form-group">
         <input type="text" id="ans-tags" tabindex="2" value="" required>
       </fieldset>
 
       <fieldset>
-        <button type="button" onclick="search()" id="contact-submit">ไปจ้า</button>
+        <button type="button" onclick="search()" id="contact-submit">สอนบอท !</button>
       </fieldset>
      
     </form>
@@ -64,7 +64,6 @@
     var currentAnsString = "";
 
     var userId = '';
-    var pageToken = "EAAEXd2XKlTEBAFiCOWAwbvxrKeYq9m3ElhPZBpwR0Sn2nIeE8fnLFDGcGVR7TCCB6OegNcArLiXSl8I8eqLasjU0IzkSAhwicUxsHoepVygGgYcfIXiRnLdNkAOpD2azdVnx7GEUBJwe0beQ9tCB0ZABZCYavgDngTfzAd6DgZDZD";
     window.extAsyncInit = function() {
       MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;
@@ -101,7 +100,6 @@
     }
 
     getAllTag();
-
     function getAllTag() {
 
       setTimeout(function() {
@@ -126,7 +124,7 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่ข้อความที่ให้ไอ้แดงตอบ...",
+          placeholder: "ใส่คำตอบ...",
           onChange: function(value) {
             currentAnsString = value;
           }
@@ -140,7 +138,6 @@
       xhr.open('POST', 'https://reply-msg-server.herokuapp.com/parse/functions/' + methodName, true);
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
-      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
 
       xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
