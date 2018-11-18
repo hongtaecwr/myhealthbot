@@ -24,6 +24,9 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 
 ////line_client
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 app.get('/createquiz', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
 });
