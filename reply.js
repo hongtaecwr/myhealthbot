@@ -27,7 +27,7 @@ function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
     headers: {
       'Content-Type': 'application/json',
       'X-Parse-Application-Id': 'myAppId',
-      'X-Parse-REST-API-Key': 'myRestKey'
+      'X-Parse-Master-Key': 'myMasterKey'
     },
     body: requestMsg
   };
