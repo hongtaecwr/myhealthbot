@@ -64,7 +64,26 @@
     var currentAnsString = "";
 
     var userId = '';
+    var pageToken = "EAAEXd2XKlTEBAFiCOWAwbvxrKeYq9m3ElhPZBpwR0Sn2nIeE8fnLFDGcGVR7TCCB6OegNcArLiXSl8I8eqLasjU0IzkSAhwicUxsHoepVygGgYcfIXiRnLdNkAOpD2azdVnx7GEUBJwe0beQ9tCB0ZABZCYavgDngTfzAd6DgZDZD";
+    window.extAsyncInit = function() {
+      MessengerExtensions.getUserID(function success(uids) {
+        var psid = uids.psid;
+        userId = psid;
 
+      }, function error(err, errorMessage) {
+        // Error handling code
+      });
+    };
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
 
     function search() {
       var msgDatas = currentAskString.split(",");
@@ -72,7 +91,7 @@
       msgDatas = JSON.stringify(msgDatas);
       replyDatas = JSON.stringify(replyDatas);
       var data = '{"msg":' + msgDatas + ',"replyMsg":' + replyDatas + '}';
-      callParseServerCloudCode("botTaining", data, function(response) {
+      callParseServerCloudCode("botTraining", data, function(response) {
         if (response) {
           console.log(response);
           alert("🤖:จำได้แล้ว !");
@@ -82,6 +101,7 @@
     }
 
     getAllTag();
+
     function getAllTag() {
 
       setTimeout(function() {
@@ -106,7 +126,7 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่คำตอบ...",
+          placeholder: "ใส่ข้อความที่ให้ไอ้แดงตอบ...",
           onChange: function(value) {
             currentAnsString = value;
           }
@@ -132,7 +152,20 @@
       xhr.send(requestMsg);
     }
 
+    function callSendAPI(messageData, responseMsg) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://graph.facebook.com/v2.6/me/messages?access_token=' + pageToken, true);
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArr = JSON.parse(this.responseText);
+          responseMsg(myArr);
+        }
+      };
 
+      xhr.send(messageData);
+
+    }
   </script>
 
 
