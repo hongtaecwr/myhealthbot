@@ -140,8 +140,7 @@
       xhr.open('POST', 'https://replyserver.herokuapp.com/parse/functions/' + methodName, true);
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
-      xhr.setRequestHeader('X-Parse-MASTER-Key', 'myMasterKey');
-      xhr.setRequestHeader('X-Parse-Url', 'https://replyserver.herokuapp.com/parse');
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
 
       xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
