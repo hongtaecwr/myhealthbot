@@ -137,10 +137,10 @@
 
     function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://reply-msg-server.back4app.com/parse/functions/' + methodName, true);
+      xhr.open('POST', 'https://reply-msg-server.herokuapp.com/parse/functions/' + methodName, true);
       xhr.setRequestHeader('Content-type', 'application/json');
-      xhr.setRequestHeader('X-Parse-Application-Id', 'Yd1Y1mmVSi0lvUHkqxgCWXRp3rKgcFL0CfRaqm9j');
-      xhr.setRequestHeader('X-Parse-REST-API-Key', 'SOBy9nZ0uRxlWXDKNZuSS4oti7IpQof1W5lBv1bV');
+      xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
 
       xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
