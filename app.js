@@ -148,7 +148,7 @@ function handleEvent(event) {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: "#!?!%$"
+                                            text: "น้องบอทยังไม่เข้าใจน๊าาาา"
                                         }]);
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{
