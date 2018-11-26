@@ -104,18 +104,8 @@ function handleEvent(event) {
                     type: "text",
                     text: "สวัสดีจ้า นี่บอทเอง",
                 }, {
-                    type: "template",
-                    altText: "วิธีสอนบอทพูด",
-                    template: {
-                        type: "buttons",
-                        title: "สอนบอทให้พูด",
-                        text: "วิธีง่ายๆแค่กดปุ่มด้านล่าง",
-                        actions: [{
-                            "type": "uri",
-                            "label": "สอนบอทเลย !",
-                            "uri": "https://myhealthbot.herokuapp.com/bot-train"
-                        }]
-                    }
+                    type: "text",
+                    text: "สวัสดีจ้า",
                 }]);
                 break;
             case 'help':
