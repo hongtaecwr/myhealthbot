@@ -23,9 +23,7 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 });
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.json({
-  verify: verifyRequestSignature
-}));
+
 app.use(express.static('public'));
 
 ////line_client
