@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +15,17 @@
   <title>Bot Training</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="public/css/theme.css" rel="stylesheet">
-  <link href="public/css/selectize.bootstrap3.css" rel="stylesheet">
+  <link href="css/theme.css" rel="stylesheet">
+  <link href="css/selectize.bootstrap3.css" rel="stylesheet">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
@@ -30,19 +37,19 @@
 
     <form id="contact" action="" method="post">
 
-      <label id="label-tags" for="ask-tags">สอนบอท :</label>
+      <label id="label-tags" for="ask-tags">พูดว่า:</label>
       <fieldset class="form-group">
         <input type="text" id="ask-tags" tabindex="1" value="" required>
       </fieldset>
-      <label id="label-tags" for="ans-tags">ให้บอทตอบว่า :</label>
+      <label id="label-tags" for="ans-tags">ตอบว่า:</label>
       <fieldset class="form-group">
         <input type="text" id="ans-tags" tabindex="2" value="" required>
       </fieldset>
 
       <fieldset>
-        <button type="button" onclick="search()" id="contact-submit">สอนบอท !</button>
+        <button type="button" onclick="search()" id="contact-submit">Submit</button>
       </fieldset>
-
+      <p class="copyright">Created by <a href="https://dang-ai.herokuapp.com" target="_blank" title="Colorlib">Dang.ai</a></p>
     </form>
   </div>
 
@@ -59,7 +66,7 @@
 
     var userId = '';
     var pageToken = "EAAEXd2XKlTEBAFiCOWAwbvxrKeYq9m3ElhPZBpwR0Sn2nIeE8fnLFDGcGVR7TCCB6OegNcArLiXSl8I8eqLasjU0IzkSAhwicUxsHoepVygGgYcfIXiRnLdNkAOpD2azdVnx7GEUBJwe0beQ9tCB0ZABZCYavgDngTfzAd6DgZDZD";
-    window.extAsyncInit = function () {
+    window.extAsyncInit = function() {
       MessengerExtensions.getUserID(function success(uids) {
         var psid = uids.psid;
         userId = psid;
@@ -68,7 +75,7 @@
         // Error handling code
       });
     };
-    (function (d, s, id) {
+    (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {
         return;
@@ -85,7 +92,7 @@
       msgDatas = JSON.stringify(msgDatas);
       replyDatas = JSON.stringify(replyDatas);
       var data = '{"msg":' + msgDatas + ',"replyMsg":' + replyDatas + '}';
-      callParseServerCloudCode("botTraining", data, function (response) {
+      callParseServerCloudCode("botTraining", data, function(response) {
         if (response) {
           console.log(response);
           alert("🤖:จำได้แล้ว !");
@@ -98,7 +105,7 @@
 
     function getAllTag() {
 
-      setTimeout(function () {
+      setTimeout(function() {
         document.getElementById("myNav").style.visibility = "hidden";
 
         // selectize script
@@ -109,7 +116,7 @@
           delimiter: ',',
           create: true,
           placeholder: "ใส่ข้อความที่ต้องการสอน...",
-          onChange: function (value) {
+          onChange: function(value) {
             currentAskString = value;
           }
         });
@@ -120,8 +127,8 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่คำตอบ...",
-          onChange: function (value) {
+          placeholder: "ใส่ข้อความที่ให้ไอ้แดงตอบ...",
+          onChange: function(value) {
             currentAnsString = value;
           }
         });
@@ -131,12 +138,12 @@
 
     function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://replyserver.herokuapp.com/parse/functions/' + methodName, true);
+      xhr.open('POST', 'https://reply-msg-parse-server.herokuapp.com/parse/functions/' + methodName, true);
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
-      xhr.setRequestHeader('X-Parse-Master-Key', 'myMasterKey');
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
 
-      xhr.onreadystatechange = function () {
+      xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var myArr = JSON.parse(this.responseText);
           responseMsg(myArr.result);
@@ -146,20 +153,36 @@
       xhr.send(requestMsg);
     }
 
+    function callSendAPI(messageData, responseMsg) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://graph.facebook.com/v2.6/me/messages?access_token=' + pageToken, true);
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArr = JSON.parse(this.responseText);
+          responseMsg(myArr);
+        }
+      };
 
+      xhr.send(messageData);
+
+    }
   </script>
 
 
   <!-- jQuery -->
-  <script src="public/js/jquery.js"></script>
+  <script src="js/jquery.js"></script>
 
   <!-- Bootstrap Core JavaScript -->
-  <script src="public/js/bootstrap.min.js"></script>
-  <script src="public/js/standalone/selectize.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/standalone/selectize.min.js"></script>
 
   <!-- Scrolling Nav JavaScript -->
-  <script src="public/js/jquery.easing.min.js"></script>
-  <script src="public/js/scrolling-nav.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/scrolling-nav.js"></script>
+
+
+
 </body>
 
 </html>
