@@ -22,6 +22,7 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 });
 
+app.use(express.static('public'));
 
 ////line_client
 app.get('/', function (req, res) {
