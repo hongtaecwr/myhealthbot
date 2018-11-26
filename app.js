@@ -106,7 +106,11 @@ function handleEvent(event) {
                     text: "สวัสดีจ้า นี่บอทเอง",
                 }, {
                     type: "text",
+<<<<<<< HEAD
                     text: "สวัสดีครับ\nดีครับ",
+=======
+                    text: "สวัสดีครับ\n ว่าไงง",
+>>>>>>> f60e31c8b1054e75ab3565836c6efae944056760
                 }]);
                 break;
             case 'help':
