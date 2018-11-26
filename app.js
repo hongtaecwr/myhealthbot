@@ -105,7 +105,7 @@ function handleEvent(event) {
                     text: "สวัสดีจ้า นี่บอทเอง",
                 }, {
                     type: "text",
-                    text: "สวัสดีจ้า",
+                    text: "สวัสดีครับ\n ดีครับ",
                 }]);
                 break;
             case 'help':
