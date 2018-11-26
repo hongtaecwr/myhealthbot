@@ -11,17 +11,9 @@ const
 require('dotenv').config();
 
 const app = express();
-
-const line_client = new line.Client(config);
-
-
-app.set('view engine', 'ejs');
-app.use(bodyParser.json({
-  verify: verifyRequestSignature
-}));
 app.use(express.static('public'));
 
-
+const line_client = new line.Client(config);
 
 app.post('/webhook', line.middleware(config), (req, res) => {
     res.sendStatus(200)
