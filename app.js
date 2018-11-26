@@ -42,6 +42,9 @@ app.get('/policy', function (req, res) {
 app.get('/bot-train', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/bottrain.html'));
 });
+app.get('/test', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/test.html'));
+});
 app.get('/json-upload-to-parse', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/json-upload-to-parse.html'));
 });
