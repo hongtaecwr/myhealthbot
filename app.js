@@ -116,6 +116,30 @@ function handleEvent(event) {
                     stickerId: "22"
                 }]);
                 break;
+            
+            case 'สอนน้องบอทพูด':
+            case 'สอนน้อง':
+            case 'สอนพูด':
+            case 'สอน':
+            line_client.replyMessage(event.replyToken, [{
+                type: "text",
+                text: "สามารถสอนโดยวิธีการดังนี้",
+            }, {
+                type: "template",
+                altText: "วิธีสอนบอทให้พูด",
+                template: {
+                    type: "buttons",
+                    title: "สอนบอทให้พูด",
+                    text: "วิธีง่ายๆแค่กดปุ่มด้านล่าง",
+                    actions: [{
+                        "type": "uri",
+                        "label": "สอนบอทให้พูด",
+                        "uri": "https://myhealthbot.herokuapp.com/bot-train"
+                    }]
+                }
+            }]);
+            break;
+
             case 'help':
             case 'Help':
             case '#help':
