@@ -54,10 +54,10 @@ function processMessage(reqMsg, resMsg) {
         // trainingCommand
         trainingCommand(reqMsg, function (res) {
           if (!res) {
-            resMsg("ข้าว่ามีบางอย่างผิดพลาด คุณอาจจะลืมเว้นวรรค หรือเผลอกด เว้นบันทัด");
+            resMsg("มีบางอย่างผิดพลาด คุณอาจจะลืมเว้นวรรค หรือเผลอกด เว้นบรรทัด");
             //failed
           } else {
-            resMsg("ข้าจำได้แล้ว ลองทักข้าใหม่ซิ อิอิ");
+            resMsg("ผมจำได้แล้ว ลองพิมพ์ข้อความที่สอนดูครับผม");
             //success
           }
         });

@@ -30,15 +30,15 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
-app.get('/createquiz', function (req, res) {
-    res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
-});
-app.get('/searchquiz', function (req, res) {
-    res.sendFile(path.join(__dirname + '/public/searchQuiz.html'));
-});
-app.get('/searchquizLine', function (req, res) {
-    res.sendFile(path.join(__dirname + '/public/searchQuizLine.html'));
-});
+// app.get('/createquiz', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
+// });
+// app.get('/searchquiz', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/public/searchQuiz.html'));
+// });
+// app.get('/searchquizLine', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/public/searchQuizLine.html'));
+// });
 app.get('/policy', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/policy.html'));
 });
@@ -105,10 +105,14 @@ function handleEvent(event) {
             case 'ไปเลย':
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
-                    text: "สวัสดีจ้า นี่บอทเอง",
+                    text: "สวัสดีครับ ผมเฮลท์บอทเอง",
                 }, {
                     type: "text",
-                    text: "สวัสดีครับ\nดีครับ",
+                    text: "ยินดีต้อนรับสู่เฮลท์บอท แชทบอทเพื่อสุขภาพ🤖\nสามารถเข้าสู่บทสนทนาทั่วไปได้เลยหรือจะเลือกเมนูนูได้เลยครับ\nหากมีข้อสงสัยด้านการใช้งานสามารถเลือกเมนูช่วยเหลือหรือพิมพ์ Help ก็ได้ครับ",
+                },{
+                    type: "sticker",
+                    packageId: "2",
+                    stickerId: "22",
                 }]);
                 break;
             case 'help':
@@ -117,17 +121,17 @@ function handleEvent(event) {
             case '#Help':
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
-                    text: "สวัสดีจ้า นี่บอทเอง",
+                    text: "ยินดีต้อนรับเข้าสู่เมนูช่วยเหลือ😀\nท่านสามารถเลือกเมนูได้จากปุ่มเมนูหรือสามารถพิมพ์การสนทนาทั่วไปได้เลย\nในการสอนพูด ท่านสามารถกดปุ่มด้านล่าง หรือพิมพ์ตามตัวอย่างดังนี้\n#ถาม สวัสดี #ตอบ ว่ายังไงครับ\n",
                 }, {
                     type: "template",
-                    altText: "วิธีสอนไอ้แดงพูด",
+                    altText: "วิธีสอนบอทให้พูด",
                     template: {
                         type: "buttons",
-                        title: "สอนไอ้แดงให้พูด",
+                        title: "สอนบอทให้พูด",
                         text: "วิธีง่ายๆแค่กดปุ่มด้านล่าง",
                         actions: [{
                             "type": "uri",
-                            "label": "สอนไอ้แดง",
+                            "label": "สอนบอทให้พูด",
                             "uri": "https://myhealthbot.herokuapp.com/bot-train"
                         }]
                     }
