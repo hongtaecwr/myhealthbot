@@ -124,7 +124,12 @@ function handleEvent(event) {
             line_client.replyMessage(event.replyToken, [{
                 type: "text",
                 text: "สามารถสอนโดยวิธีการดังนี้",
-            }, {
+            },{
+                type: "image",
+                originalContentUrl: "https://myhealthbot.herokuapp.com/assets/Guide-1.png",
+                previewImageUrl: "https://myhealthbot.herokuapp.com/assets/Guide-1.png",
+                animated: false,
+            },{
                 type: "template",
                 altText: "วิธีสอนบอทให้พูด",
                 template: {
