@@ -103,6 +103,7 @@ function handleEvent(event) {
             case 'ใช้งาน':
             case 'Start':
             case 'ไปเลย':
+            case 'เริ่ม':
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "สวัสดีครับ ผมเฮลท์บอทเอง",
@@ -112,7 +113,7 @@ function handleEvent(event) {
                 },{
                     type: "sticker",
                     packageId: "2",
-                    stickerId: "22",
+                    stickerId: "22"
                 }]);
                 break;
             case 'help':
