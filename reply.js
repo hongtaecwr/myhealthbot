@@ -50,7 +50,7 @@ function processMessage(reqMsg, resMsg) {
   if (reqMsg.length > 6) {
     var checkMsg = reqMsg.substring(0, 4);
     switch (checkMsg) {
-      case '#ask':
+      case '#ถาม':
         // trainingCommand
         trainingCommand(reqMsg, function (res) {
           if (!res) {
@@ -106,8 +106,8 @@ function trainingCommand(msg, res) {
   try {
     msg = msg.replace(/ /g, "");
     msg = msg.replace(/\r?\n|\r/g, "");
-    msg = msg.replace("#ask", "");
-    msg = msg.replace("#ans", ":");
+    msg = msg.replace("#ถาม", "");
+    msg = msg.replace("#ตอบ", ":");
     var msgs = msg.split(":");
     var msgDatas = msgs[0].split(",");
     var replyDatas = msgs[1].split(",");
