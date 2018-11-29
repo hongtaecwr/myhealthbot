@@ -149,9 +149,10 @@ function handleEvent(event) {
             case 'Help':
             case '#help':
             case '#Help':
-            case '#ขอความช่วยเหลือ':
-            case '#ช่วยเหลือ':
-            case '#ช่วยด้วย':
+            case 'ขอความช่วยเหลือ':
+            case 'ช่วยเหลือ':
+            case 'ช่วยด้วย':
+            case 'ช่วย':
             case '#ช่วย':
             case '#ช่วยหน่อย':
                 line_client.replyMessage(event.replyToken, [{
