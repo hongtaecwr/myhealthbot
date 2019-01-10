@@ -56,27 +56,27 @@
     var currentAskString = "";
     var currentAnsString = "";
 
-    var userId = '';
-    var pageToken = "EAAEXd2XKlTEBAFiCOWAwbvxrKeYq9m3ElhPZBpwR0Sn2nIeE8fnLFDGcGVR7TCCB6OegNcArLiXSl8I8eqLasjU0IzkSAhwicUxsHoepVygGgYcfIXiRnLdNkAOpD2azdVnx7GEUBJwe0beQ9tCB0ZABZCYavgDngTfzAd6DgZDZD";
-    window.extAsyncInit = function () {
-      MessengerExtensions.getUserID(function success(uids) {
-        var psid = uids.psid;
-        userId = psid;
+    // var userId = '';
+    // var pageToken = "EAAEXd2XKlTEBAFiCOWAwbvxrKeYq9m3ElhPZBpwR0Sn2nIeE8fnLFDGcGVR7TCCB6OegNcArLiXSl8I8eqLasjU0IzkSAhwicUxsHoepVygGgYcfIXiRnLdNkAOpD2azdVnx7GEUBJwe0beQ9tCB0ZABZCYavgDngTfzAd6DgZDZD";
+    // window.extAsyncInit = function () {
+    //   MessengerExtensions.getUserID(function success(uids) {
+    //     var psid = uids.psid;
+    //     userId = psid;
 
-      }, function error(err, errorMessage) {
-        // Error handling code
-      });
-    };
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'Messenger'));
+    //   }, function error(err, errorMessage) {
+    //     // Error handling code
+    //   });
+    // };
+    // (function (d, s, id) {
+    //   var js, fjs = d.getElementsByTagName(s)[0];
+    //   if (d.getElementById(id)) {
+    //     return;
+    //   }
+    //   js = d.createElement(s);
+    //   js.id = id;
+    //   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+    //   fjs.parentNode.insertBefore(js, fjs);
+    // }(document, 'script', 'Messenger'));
 
     function search() {
       var msgDatas = currentAskString.split(",");
