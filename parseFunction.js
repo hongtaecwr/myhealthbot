@@ -11,7 +11,7 @@ module.exports = {
 function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
   console.log("callCloudCode:" + methodName + "\nrequestMsg:" + requestMsg);
   var options = {
-    url: 'https://reply-msg-server.herokuapp.com/parse/functions/' + methodName,
+    url: 'https://replyserver.herokuapp.com/parse/functions/' + methodName,
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
