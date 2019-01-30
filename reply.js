@@ -17,7 +17,7 @@ module.exports = {
     return badwordFilter(requestMsg);
   }
 };
-// ------ bot process ------//
+// ------ bot process ------ //
 
 function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
   console.log("callParseServerCloudCode:" + methodName + "\nrequestMsg:" + requestMsg);
@@ -220,4 +220,15 @@ function badwordFilter(messageText) {
   }
   return messageData;
 }
+
+function testSynonym(messageText2) {
+  var messageData2 = messageText2;
+  if (messageData2 != '' || messageData2 != null) {
+    
+    messageData2 = messageData2.replace(/หมา/g, 'สุนัข');
+    
+  }
+  return messageData2;
+}
+
 // ------ bot process ------//

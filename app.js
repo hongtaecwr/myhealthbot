@@ -177,6 +177,7 @@ function handleEvent(event) {
             default:
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
+                    _reply.badwordFilter(responseMsg)
                     if (responseMsg == messageText) {
                         _reply.callCloudCode("getReplyMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
