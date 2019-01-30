@@ -31,7 +31,7 @@ function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
     },
     body: requestMsg
   };
-
+  //// ดู
   function callback(error, response, body) {
     console.log("response:" + JSON.stringify(response));
     if (!error && response.statusCode == 200) {
