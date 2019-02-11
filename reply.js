@@ -175,7 +175,7 @@ function containsAny(str, substrings) {
 function testSynonym(messageText) {
   var messageData = messageText;
   if (messageData != '' || messageData != null) {
-
+////////////////////////Synonym////////////////////////////
     messageData = messageData.replace(/จับไข้/g, 'เป็นไข้');
     messageData = messageData.replace(/เจ็บป่วย/g, 'เป็นไข้');
     messageData = messageData.replace(/ป่วย/g, 'เป็นไข้');
