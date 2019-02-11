@@ -119,6 +119,7 @@ function handleEvent(event) {
             
             case 'สอนน้องบอทพูด':
             case 'สอนน้อง':
+            case 'สอนบอท':
             case 'สอนพูด':
             case 'สอน':
             line_client.replyMessage(event.replyToken, [{
@@ -189,7 +190,7 @@ function handleEvent(event) {
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: _reply.badwordFilter(response)
+                                            text: _reply.testSynonym(response)
                                         }]);
 
                                         var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
@@ -207,14 +208,14 @@ function handleEvent(event) {
                             } else {
                                 line_client.replyMessage(event.replyToken, [{
                                     type: "text",
-                                    text: _reply.badwordFilter(response)
+                                    text: _reply.testSynonym(response)
                                 }]);
                             }
                         });
                     } else {
                         line_client.replyMessage(event.replyToken, [{
                             type: "text",
-                            text: _reply.badwordFilter(responseMsg)
+                            text: _reply.testSynonym(responseMsg)
                         }]);
                     }
                 });

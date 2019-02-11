@@ -13,8 +13,8 @@ module.exports = {
       responseMsg(res);
     });
   },
-  badwordFilter: function (requestMsg) {
-    return badwordFilter(requestMsg);
+  testSynonym: function (requestMsg) {
+    return testSynonym(requestMsg);
   }
 };
 // ------ bot process ------ //
@@ -172,51 +172,18 @@ function containsAny(str, substrings) {
 }
 
 
-function badwordFilter(messageText) {
+function testSynonym(messageText) {
   var messageData = messageText;
   if (messageData != '' || messageData != null) {
-    messageData = messageData.replace(/เย็ด/g, 'จุ๊บ');
-    messageData = messageData.replace(/เยด/g, 'จุ๊บ');
-    messageData = messageData.replace(/เย็ส/g, 'จุ๊บ');
-    messageData = messageData.replace(/เยด/g, 'จุ๊บ');
-    messageData = messageData.replace(/เยส/g, 'จุ๊บ');
-    messageData = messageData.replace(/เย้ด/g, 'จุ๊บ');
-    messageData = messageData.replace(/เย้ส/g, 'จุ๊บ');
 
-    messageData = messageData.replace(/ควย/g, 'จู๋');
-    messageData = messageData.replace(/หี/g, 'ฉี');
-    messageData = messageData.replace(/ดอ/g, 'จู๋');
+    messageData = messageData.replace(/จับไข้/g, 'เป็นไข้');
+    messageData = messageData.replace(/เจ็บป่วย/g, 'เป็นไข้');
+    messageData = messageData.replace(/ป่วย/g, 'เป็นไข้');
+    messageData = messageData.replace(/ไม่สบาย/g, 'เป็นไข้');
 
-    messageData = messageData.replace(/เหี้ย/g, '*#$!');
-    messageData = messageData.replace(/เหี่ย/g, '*#$!');
-
-    messageData = messageData.replace(/บอด/g, '');
-
-    messageData = messageData.replace(/ยุด/g, '_');
-    messageData = messageData.replace(/ยุท/g, '_');
-    messageData = messageData.replace(/ยุทธ/g, '_');
-    messageData = messageData.replace(/ยุธ/g, '_');
-
-    messageData = messageData.replace(/เงี่ยน/g, 'need');
-    messageData = messageData.replace(/เงี่ย/g, 'need');
-    messageData = messageData.replace(/เงี้ยน/g, 'need');
-    messageData = messageData.replace(/เงียน/g, 'need');
-
-    messageData = messageData.replace(/ชักว่าว/g, 'สาว');
-    messageData = messageData.replace(/ชักว้าว/g, 'สาว');
-
-    messageData = messageData.replace(/ตูด/g, 'ก้น');
-
-    messageData = messageData.replace(/กู/g, 'เค้า');
-    messageData = messageData.replace(/กุ/g, 'เค้า');
-
-    messageData = messageData.replace(/มึง/g, 'เธอ');
-    messageData = messageData.replace(/มิง/g, 'เธอ');
-    messageData = messageData.replace(/เมิง/g, 'เธอ');
-
-    messageData = messageData.replace(/สัด/g, 'จุ๊บ');
-    messageData = messageData.replace(/สัส/g, 'จุ๊บ');
-
+    messageData = messageData.replace(/ทานข้าว/g, 'รับประทานอาหาร');
+    messageData = messageData.replace(/กินข้าว/g, 'รับประทานอาหาร');
+    messageData = messageData.replace(/รับประทานข้าว/g, 'รับประทานอาหาร');
   }
   return messageData;
 }
