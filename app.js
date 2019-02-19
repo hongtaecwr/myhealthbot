@@ -177,7 +177,6 @@ function handleEvent(event) {
 //////////////////////
             default:
                 var messageText = event.message.text;
-                _reply.testSynonym(messageText);
                 _reply.processMessage(messageText, function (responseMsg) {
                     if (responseMsg == messageText) {
                         _reply.callCloudCode("getReplyMsg", '{"msg":"' + messageText + '"}', function (response) {
