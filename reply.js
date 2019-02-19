@@ -20,6 +20,7 @@ module.exports = {
 // ------ bot process ------ //
 
 function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
+  testSynonym(requestMsg);
   console.log("callParseServerCloudCode:" + methodName + "\nrequestMsg:" + requestMsg);
   var options = {
     url: 'https://replyserver.herokuapp.com/parse/functions/' + methodName,
@@ -37,7 +38,6 @@ function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
     if (!error && response.statusCode == 200) {
       var info = JSON.parse(body);
       responseMsg(info.result.replyMsg);
-      testSynonym(info.result.msg);
       console.log("result.msg: " + info.result.msg + " result.replyMsg: " + info.result.replyMsg);
     } else {
       console.error("Unable to send message. Error :" + error);
