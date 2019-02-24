@@ -185,7 +185,7 @@ function handleEvent(event) {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: "น้องบอทยังไม่เข้าใจน๊าาาา"
+                                            text: "ผมยังไม่เข้าใจครับ บอทยังไม่มีคำตอบในระบบ กรุณาตรวจสอบข้อความของคุณอีกครั้งครับ"
                                         }]);
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{

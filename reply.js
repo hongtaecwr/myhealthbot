@@ -20,7 +20,6 @@ module.exports = {
 // ------ bot process ------ //
 
 function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
-  testSynonym(requestMsg);
   console.log("callParseServerCloudCode:" + methodName + "\nrequestMsg:" + requestMsg);
   var options = {
     url: 'https://replyserver.herokuapp.com/parse/functions/' + methodName,
