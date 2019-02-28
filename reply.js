@@ -208,7 +208,15 @@ function testSynonym(messageText) {
 
     messageData = messageData.replace(/ตูด/g, 'ก้น');
 
+    messageData = messageData.replace(/กู/g, 'เค้า');
+    messageData = messageData.replace(/กุ/g, 'เค้า');
 
+    messageData = messageData.replace(/มึง/g, 'เธอ');
+    messageData = messageData.replace(/มิง/g, 'เธอ');
+    messageData = messageData.replace(/เมิง/g, 'เธอ');
+
+    messageData = messageData.replace(/สัด/g, 'จุ๊บ');
+    messageData = messageData.replace(/สัส/g, 'จุ๊บ');
   }
   return messageData;
 }
