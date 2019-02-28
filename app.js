@@ -133,6 +133,20 @@ function handleEvent(event) {
                     }
                 }]);
                 break;
+
+            case 'วิเคราะห์โรค':
+            case 'รู้สึกป่วย':
+            case 'ตรวจสอบอาการโรค':
+            case 'วิเคราะห์โรคเบื้องต้น':
+            case 'ป่วย':
+            line_client.replyMessage(event.replyToken, [{
+                type: "text",
+                text: "สามารถพิมพ์บอกอาการของโรคเพื่อวิเคราะห์ความน่าจะเป็นในการเกิดโรคหรืออยากทราบอาการของโรคนั้น ๆ ได้โดยการกดเลือกเมนู",
+            },{}
+        
+        ]);
+            break;
+
 ////////////ในกรณีคุยเล่น//////////
             default:
                 var messageText = event.message.text;
