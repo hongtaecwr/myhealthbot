@@ -133,7 +133,7 @@ function handleEvent(event) {
                     }
                 }]);
                 break;
-//////////////////////
+////////////ในกรณีคุยเล่น//////////
             default:
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
