@@ -151,27 +151,6 @@
         });
         $('#alertbox').hide();
 
-
-        window.extAsyncInit = function() {
-            MessengerExtensions.getUserID(function success(uids) {
-                // User ID was successfully obtained.
-                var psid = uids.psid;
-                //document.getElementById('correct-input').value = psid + " : " + uids;
-            }, function error(err, errorMessage) {
-                // Error handling code
-            });
-        };
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'Messenger'));
-
         function GenerateId() {
             var i = function() {
                 return Math.floor(Math.random() * 9);
@@ -212,20 +191,6 @@
             callParseServerCloudCode("createQuizFromQuizForm", data, function(response) {
 
             });
-            /*
-            // for check category name exist
-            var categoryNameData = '{"name":"' + categoryName + '"}';
-            callParseServerCloudCode("createNewCategory", categoryNameData, function(response) {
-
-            });
-            // for check tags name exist
-            for (var i = 0; i < tagArray.length; i++) {
-                var tag = tagArray[i]
-                var tagNameData = '{"name":"' + tag + '"}';
-                callParseServerCloudCode("createNewTag", tagNameData, function(response) {
-
-                });
-            }*/
             var categoryNameData = '{"categories":"' + categoryName + '"}';
             callParseServerCloudCode("createCategoryToDataArray", categoryNameData, function(response) {
 
@@ -242,14 +207,6 @@
             });
             document.getElementById("contact").reset();
             $('#category').val(categoryName);
-            //$('#quiz').val(JSON.stringify(obj));
-            /*
-            MessengerExtensions.requestCloseBrowser(function success() {
-
-            }, function error(err) {
-
-            });
-            */
         }
 
         getAllTag();
