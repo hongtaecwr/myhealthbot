@@ -210,6 +210,7 @@ function testSynonym(messageText) {
 
     messageData = messageData.replace(/กู/g, 'เค้า');
     messageData = messageData.replace(/กุ/g, 'เค้า');
+    messageData = messageData.replace(/กุ้ง/g, 'กุ้ง');
 
     messageData = messageData.replace(/มึง/g, 'เธอ');
     messageData = messageData.replace(/มิง/g, 'เธอ');
