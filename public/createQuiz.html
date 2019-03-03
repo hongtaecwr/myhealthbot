@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=0">
+
+  <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
+    <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+
+    <title>Dang.ai - Quiz bot platform</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/selectize.bootstrap3.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+
+
+
+
+    <div class="container">
+
+
+        <form id="contact" class="registerForm">
+
+            <div class="alert alert-success" id="alertbox">
+                <strong>Success!</strong> Your quiz has uploaded.
+            </div>
+
+            <h3>Create Quiz form</h3>
+            <h4>Fill your quiz into this form</h4>
+
+
+            <fieldset class="form-group">
+                <input id="category" name="category" placeholder="ชื่อหัวข้อคำถาม..." type="text" tabindex="1" required>
+            </fieldset>
+            <label for="input-tags">Quiz Tags:</label>
+            <fieldset class="form-group">
+                <input type="text" id="input-tags" class="demo-default" tabindex="2">
+            </fieldset>
+
+            <fieldset class="form-group">
+                <textarea id="quiz" name="quiz" placeholder="คำถามของคุณ..." tabindex="3" required autofocus></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+                <input id="correct" name="correct" placeholder="คำตอบที่ถูกต้อง..." type="text" tabindex="4" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <input id="incorrect_1" name="incorrect" placeholder="คำตอบที่ผิด..." type="text" tabindex="5" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <input id="incorrect_2" placeholder="คำตอบที่ผิด...(จะใส่หรือไม่ใส่ก็ได้)" type="text" tabindex="6" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <input id="incorrect_3" placeholder="คำตอบที่ผิด...(จะใส่หรือไม่ใส่ก็ได้)" type="text" tabindex="7" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <input id="correct_detail" placeholder="คำอธิบายเฉลย...(จะใส่หรือไม่ใส่ก็ได้)" type="text" tabindex="8" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <button name="submit" type="submit" id="contact-submit">Submit</button>
+            </fieldset>
+        </form>
+
+
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/standalone/selectize.min.js"></script>
+    <script src="js/bootstrapValidator.min.js"></script>
+
+
+    <!-- Facebook Core JavaScript -->
+
+    <script>
+        var currentTagsString = "";
+
+        $('.registerForm').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                category: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Quiz category is required and cannot be empty'
+                        }
+                    }
+                },
+                quiz: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Quiz details is required and cannot be empty'
+                        }
+                    }
+                },
+                correct: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Correct answer is required and cannot be empty'
+                        }
+                    }
+                },
+                incorrect: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Incorrect answer is required and cannot be empty'
+                        }
+                    }
+                }
+            }
+        }).on('success.form.bv', function(e) {
+            submitquiz();
+        });
+        $('#alertbox').hide();
+
+
+        window.extAsyncInit = function() {
+            MessengerExtensions.getUserID(function success(uids) {
+                // User ID was successfully obtained.
+                var psid = uids.psid;
+                //document.getElementById('correct-input').value = psid + " : " + uids;
+            }, function error(err, errorMessage) {
+                // Error handling code
+            });
+        };
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
+
+        function GenerateId() {
+            var i = function() {
+                return Math.floor(Math.random() * 9);
+            };
+            return "" + i() + i() + i() + i() + i() + i();
+        }
+
+
+        function submitquiz() {
+
+            var categoryName = $('#category').val();
+            var tagArray = currentTagsString.split(',');
+            var quiz = $('#quiz').val();
+            var correct = $('#correct').val();
+            var incorrect_1 = $('#incorrect_1').val();
+            var incorrect_2 = $('#incorrect_2').val();
+            var incorrect_3 = $('#incorrect_3').val();
+            var correct_detail = $('#correct_detail').val();
+            var inc = [];
+            inc.push(incorrect_1);
+            if (incorrect_2) {
+              inc.push(incorrect_2);
+            }if (incorrect_3) {
+              inc.push(incorrect_3);
+            }
+
+            var obj = [{
+                "id": GenerateId(),
+                "category": categoryName,
+                "tag": tagArray,
+                "quiz": quiz,
+                "correct_ans": correct,
+                "incorrect_ans": inc,
+                "correct_detail": correct_detail
+            }];
+
+            var data = '{"objects":' + JSON.stringify(obj) + '}';
+            callParseServerCloudCode("createQuizFromQuizForm", data, function(response) {
+
+            });
+            /*
+            // for check category name exist
+            var categoryNameData = '{"name":"' + categoryName + '"}';
+            callParseServerCloudCode("createNewCategory", categoryNameData, function(response) {
+
+            });
+            // for check tags name exist
+            for (var i = 0; i < tagArray.length; i++) {
+                var tag = tagArray[i]
+                var tagNameData = '{"name":"' + tag + '"}';
+                callParseServerCloudCode("createNewTag", tagNameData, function(response) {
+
+                });
+            }*/
+            var categoryNameData = '{"categories":"' + categoryName + '"}';
+            callParseServerCloudCode("createCategoryToDataArray", categoryNameData, function(response) {
+
+            });
+            var tagNameData = '{"tags":"' + tagArray + '"}';
+            callParseServerCloudCode("createTagsToDataArray", tagNameData, function(response) {
+
+            });
+            $(this).scrollTop(0);
+            $('.registerForm').data('bootstrapValidator').resetForm();
+            $('#alertbox').show();
+            $('#alertbox').fadeTo(2000, 500).slideUp(500, function() {
+                $('#alertbox').hide();
+            });
+            document.getElementById("contact").reset();
+            $('#category').val(categoryName);
+            //$('#quiz').val(JSON.stringify(obj));
+            /*
+            MessengerExtensions.requestCloseBrowser(function success() {
+
+            }, function error(err) {
+
+            });
+            */
+        }
+
+        getAllTag();
+
+        function getAllTag() {
+            var tags = [];
+            callParseServerCloudCode("getTags", null, function(response) {
+                if (response) {
+                    for (var i = 0; i < response.length; i++) {
+                        var v = JSON.stringify(response[i]);
+                        tags.push({
+                            text: v,
+                            value: v
+                        });
+                    }
+                    // selectize script
+                    $('#input-tags').selectize({
+                        plugins: ['remove_button'],
+                        persist: false,
+                        createOnBlur: true,
+                        delimiter: ',',
+                        create: true,
+                        options: tags,
+                        labelField: "text",
+                        valueField: "value",
+                        onChange: function(value) {
+                            currentTagsString = value;
+                        }
+                    });
+                } else {
+                    $('#input-tags').selectize({
+                        plugins: ['remove_button'],
+                        persist: false,
+                        createOnBlur: true,
+                        delimiter: ',',
+                        create: true,
+                        options: tags,
+                        labelField: "text",
+                        valueField: "value",
+                        onChange: function(value) {
+                            currentTagsString = value;
+                        }
+                    });
+                }
+            });
+        }
+
+
+        function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://eggyo-quiz-db.herokuapp.com/parse/functions/' + methodName, true);
+            xhr.setRequestHeader('Content-type', 'application/json');
+            xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
+            xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
+
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    responseMsg(myArr.result);
+                }
+            };
+
+            xhr.send(requestMsg);
+        }
+    </script>
+
+</body>
+
+</html>
