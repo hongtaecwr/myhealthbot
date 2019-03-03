@@ -36,6 +36,9 @@ app.get('/policy', function (req, res) {
 app.get('/bot-train', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/bottrain.html'));
 });
+app.get('/createquiz', function (req, res) {
+     res.sendFile(path.join(__dirname + '/public/insertDisease.html'));
+});
 app.get('/test', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/test.html'));
 });
