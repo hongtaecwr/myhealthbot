@@ -13,8 +13,8 @@ module.exports = {
       responseMsg(res);
     });
   },
-  testSynonym: function (requestMsg) {
-    return testSynonym(requestMsg);
+  badword: function (requestMsg) {
+    return badword(requestMsg);
   }
 };
 // ------ bot process ------ //
@@ -172,7 +172,7 @@ function containsAny(str, substrings) {
 }
 
 
-function testSynonym(messageText) {
+function badword(messageText) {
   var messageData = messageText;
   if (messageData != '' || messageData != null) {
 ///////////////////////////คำหยาบ//////////////////////////////////////

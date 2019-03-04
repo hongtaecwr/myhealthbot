@@ -227,7 +227,7 @@ function handleEvent(event) {
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: _reply.testSynonym(response)
+                                            text: _reply.badword(response)
                                         }]);
 
                                         var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
@@ -245,14 +245,14 @@ function handleEvent(event) {
                             } else {
                                 line_client.replyMessage(event.replyToken, [{
                                     type: "text",
-                                    text: _reply.testSynonym(response)
+                                    text: _reply.badword(response)
                                 }]);
                             }
                         });
                     } else {
                         line_client.replyMessage(event.replyToken, [{
                             type: "text",
-                            text: _reply.testSynonym(responseMsg)
+                            text: _reply.badword(responseMsg)
                         }]);
                     }
                 });
