@@ -78,42 +78,7 @@ function handleEvent(event) {
                     stickerId: "22"
                 }]);
                 break;
-            case 'เย่':
-                line_client.replyMessage(event.replyToken, [{
-                    type: "text", // ①
-                    text: "Select your favorite food category or send me your location!",
-                    quickReply: { // ②
-                    items: [
-                        {
-                        type: "action", // ③
-                        imageUrl: "https://example.com/sushi.png",
-                        action: {
-                            type: "message",
-                            label: "Sushi",
-                            text: "Sushi"
-                        }
-                        },
-                        {
-                        type: "action",
-                        imageUrl: "https://example.com/tempura.png",
-                        action: {
-                            type: "message",
-                            label: "Tempura",
-                            text: "Tempura"
-                        }
-                        },
-                        {
-                        type: "action", // ④
-                        action: {
-                            type: "location",
-                            label: "Send location"
-                        }
-                        }
-                    ]
-                    }
-            }]);
-            
-            break;
+        
 
 
             case 'สอนน้องบอทพูด':
@@ -257,7 +222,7 @@ function handleEvent(event) {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: "ผมยังไม่เข้าใจคำพูดของคุณ กรุณาตรวจสอบข้อความของคุณอีกครั้งครับ"
+                                            text: "ผมยังไม่เข้าใจคำพูดของคุณ/n กรุณาตรวจสอบข้อความของคุณอีกครั้งครับ"
                                         }]);
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{
