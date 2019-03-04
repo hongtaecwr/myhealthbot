@@ -162,7 +162,7 @@ function handleEvent(event) {
                         {
                           type: "message",
                           label: "โรคภูมิแพ้",
-                          text: "โรคภูมิแพ้",
+                          
                           data: "โรคภูมิแพ้"
                         },
                         {
