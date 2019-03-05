@@ -62,6 +62,40 @@ function handleEvent(event) {
         console.log("------------> event.message.text: %s", event.message.text);
         switch (event.message.text) {
             case 'เริ่มต้น':
+            line_client.replyMessage(event.replyToken, [{
+                    type: "template",
+                    altText: "this is a buttons template",
+                    template: {
+                      type: "buttons",
+                      actions: [
+                        {
+                          type: "message",
+                          label: "Action 1",
+                          text: "Action 1"
+                        },
+                        {
+                          type: "message",
+                          label: "Action 2",
+                          text: "Action 2"
+                        }
+                      ],
+                      title: "Title",
+                      text: "Text"
+                    }
+                    }]);
+            switch(event.message.text){
+                case 'Action 1':
+                line_client.replyMessage(event.replyToken, [{
+                    type: "text",
+                    text: "Form Ac1",
+                }]);
+                case 'Action 2':
+                line_client.replyMessage(event.replyToken, [{
+                    type: "text",
+                    text: "Form Ac2",
+                }]);
+            }
+            break;
             case 'ใช้งาน':
             case 'Start':
             case 'ไปเลย':
