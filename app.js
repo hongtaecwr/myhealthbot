@@ -221,42 +221,23 @@ function handleEvent(event) {
                 case 'ไอ':
                //var test1 = event.message.text;
                 if(event.message.text == 'ไอ'){
-                line_client.replyMessage(event.replyToken, [{
-                        type: "template",
-                        altText: "this is a buttons template",
-                        template: {
-                          type: "buttons",
-                            actions: [
-                                {
-                                type: "message",
-                                label: "จาม",
-                                text: "จาม"
-                                },
-                                {
-                                type: "message",
-                                label: "ไม่จาม",
-                                text: "ไม่จาม"
-                                }
-                            ],
-                          title: "คุณจามหรือไม่",
-                          text: "กรุณาตอบคำถาม"
+                    line_client.replyMessage(event.replyToken, [{
+                        type: "text",
+                        text: "จามไหม"
+                    }]);
+                    if (event.message.text == 'จาม') {
+                        line_client.replyMessage(event.replyToken, [{
+                            type: "text",
+                            text: "ปวดหัวไหม"
+                        }]);
+                        if (event.message.text == 'ปวดหัว') {
+                            line_client.replyMessage(event.replyToken, [{
+                                type: "text",
+                                text: "เป็นไข้หวัดเด้อ"
+                            }]);
                         }
-                        
-                }]);
-                    // if(test1 === 'จาม'){
-                    //     line_client.replyMessage(event.replyToken, [{
-                    //         type: "text",
-                    //         text: "if in if",
-                    //     }]); 
-                    // }else if(test1 === 'ไม่จาม'){
-                    //     line_client.replyMessage(event.replyToken, [{
-                    //         type: "text",
-                    //         text: "else in if",
-                    //     }]); 
-                    // }
-                    
-            
-            }
+                    }
+                }
                 break;
 
 ////////
