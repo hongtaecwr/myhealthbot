@@ -30,14 +30,20 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
+// app.get('/createquiz', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
+// });
+// app.get('/searchquiz', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/public/searchQuiz.html'));
+// });
+// app.get('/searchquizLine', function (req, res) {
+//     res.sendFile(path.join(__dirname + '/public/searchQuizLine.html'));
+// });
 app.get('/policy', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/policy.html'));
 });
 app.get('/bot-train', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/bottrain.html'));
-});
-app.get('/createquiz', function (req, res) {
-     res.sendFile(path.join(__dirname + '/public/insertDisease.html'));
 });
 app.get('/test', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/test.html'));
@@ -45,8 +51,40 @@ app.get('/test', function (req, res) {
 app.get('/json-upload-to-parse', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/json-upload-to-parse.html'));
 });
+app.get('/push/userId=:userId&tags=:tags&limit=:limit', function (req, res) {
+    var userId = req.params.userId;
+    var tags = req.params.tags;
+    var limit = req.params.limit;
+    var data = '{"tags":' + tags + ',"limit":' + limit + ',"getTemp":' + true + '}'
+    console.log("push userId: " + userId + " limit :" + limit + " tags :" + tags + "\ndata:" + data);
 
-///////Handle Event/////////
+    line_client.pushMessage(userId, {
+        type: 'text',
+        text: "กำลังค้นหา Quiz จากการร้องขอ.."
+    })
+        .then(() => {
+            res.json("done");
+        })
+        .catch((err) => {
+            console.error("push error :" + err);
+        });
+
+    _line_postback.getQuizsByTags(data, function (replyData) {
+        line_client.pushMessage(userId, replyData.results)
+            .then(() => {
+                res.json("done");
+            })
+            .catch((err) => {
+                console.error("push error :" + err);
+            });
+    });
+});
+
+////////////
+
+
+
+///////Handle Event
 function handleEvent(event) {
     var userId = event.source.userId;
     console.log(event);
@@ -78,6 +116,7 @@ function handleEvent(event) {
                     stickerId: "22"
                 }]);
                 break;
+            
             case 'สอนน้องบอทพูด':
             case 'สอนน้อง':
             case 'สอนบอท':
@@ -135,80 +174,7 @@ function handleEvent(event) {
                     }
                 }]);
                 break;
-
-            case 'วิเคราะห์โรค':
-            case 'รู้สึกป่วย':
-            case 'ตรวจสอบอาการโรค':
-            case 'วิเคราะห์โรคเบื้องต้น':
-            case 'ป่วย':
-            line_client.replyMessage(event.replyToken, [{
-                type: "text",
-                text: "สามารถพิมพ์บอกอาการของโรคเพื่อวิเคราะห์ความน่าจะเป็นในการเกิดโรคหรืออยากทราบอาการของโรคนั้น ๆ ได้โดยการกดเลือกเมนู",
-            },{
-                type: "template",
-                altText: "this is a carousel template",
-                template: {
-                  type: "carousel",
-                  actions: [],
-                  columns: [
-                    {
-                      thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                      title: "อาการเบื้องต้นของโรค",
-                      text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                      actions: [
-                        {
-                          type: "message",
-                          label: "โรคภูมิแพ้",
-                          text: "โรคภูมิแพ้"
-                        },
-                        {
-                          type: "message",
-                          label: "กรดไหลย้อน",
-                          text: "กรดไหลย้อน"
-                        }
-                      ]
-                    },
-                    {
-                      thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                      title: "อาการเบื้องต้นของโรค",
-                      text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                      actions: [
-                        {
-                          type: "message",
-                          label: "วัณโรค",
-                          text: "วัณโรค"
-                        },
-                        {
-                          type: "message",
-                          label: "โรคเบาหวาน",
-                          text: "โรคเบาหวาน"
-                        }
-                      ]
-                    },
-                    {
-                      thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                      title: "อาการเบื้องต้นของโรค",
-                      text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                      actions: [
-                        {
-                          type: "message",
-                          label: "ไข้หวัดใหญ่",
-                          text: "ไข้หวัดใหญ่"
-                        },
-                        {
-                          type: "message",
-                          label: "ไข้เลือดออก",
-                          text: "ไข้เลือดออก"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              }
-        ]);
-            break;
-
-////////////ในกรณีคุยเล่น//////////
+//////////////////////
             default:
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
@@ -219,12 +185,12 @@ function handleEvent(event) {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: "ผมยังไม่เข้าใจคำพูดของคุณ/n กรุณาตรวจสอบข้อความของคุณอีกครั้งครับ"
+                                            text: "น้องบอทยังไม่เข้าใจน๊าาาา"
                                         }]);
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: _reply.badword(response)
+                                            text: _reply.testSynonym(response)
                                         }]);
 
                                         var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
@@ -242,14 +208,14 @@ function handleEvent(event) {
                             } else {
                                 line_client.replyMessage(event.replyToken, [{
                                     type: "text",
-                                    text: _reply.badword(response)
+                                    text: _reply.testSynonym(response)
                                 }]);
                             }
                         });
                     } else {
                         line_client.replyMessage(event.replyToken, [{
                             type: "text",
-                            text: _reply.badword(responseMsg)
+                            text: _reply.testSynonym(responseMsg)
                         }]);
                     }
                 });
