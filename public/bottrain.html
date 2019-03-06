@@ -28,7 +28,10 @@
 
   <div class="container_2">
     <form id="contact" action="" method="post">
-        <h2 class="text-center font-weight-normal">สอนบอท</h2>
+        <div class="text-center">
+            <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
+        </div>
+        <h1 class="text-center font-weight-normal">ยินดีต้อนรับสู่เมนูสอนบอท</h1>
       <label id="label-tags" for="ask-tags">คำถาม :</label>
       <fieldset class="form-group">
         <input type="text" id="ask-tags" tabindex="1" value="" required>
@@ -55,28 +58,6 @@
   <script>
     var currentAskString = "";
     var currentAnsString = "";
-
-    // var userId = '';
-    // var pageToken = "EAAEXd2XKlTEBAFiCOWAwbvxrKeYq9m3ElhPZBpwR0Sn2nIeE8fnLFDGcGVR7TCCB6OegNcArLiXSl8I8eqLasjU0IzkSAhwicUxsHoepVygGgYcfIXiRnLdNkAOpD2azdVnx7GEUBJwe0beQ9tCB0ZABZCYavgDngTfzAd6DgZDZD";
-    // window.extAsyncInit = function () {
-    //   MessengerExtensions.getUserID(function success(uids) {
-    //     var psid = uids.psid;
-    //     userId = psid;
-
-    //   }, function error(err, errorMessage) {
-    //     // Error handling code
-    //   });
-    // };
-    // (function (d, s, id) {
-    //   var js, fjs = d.getElementsByTagName(s)[0];
-    //   if (d.getElementById(id)) {
-    //     return;
-    //   }
-    //   js = d.createElement(s);
-    //   js.id = id;
-    //   js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-    //   fjs.parentNode.insertBefore(js, fjs);
-    // }(document, 'script', 'Messenger'));
 
     function search() {
       var msgDatas = currentAskString.split(",");

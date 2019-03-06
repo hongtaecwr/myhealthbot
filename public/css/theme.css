@@ -18,7 +18,7 @@ body {
   font-size: 12px;
   line-height: 30px;
   color: #777;
-  background: #e74c3c;
+  background: #e05b49;
 }
 
 .container {
@@ -107,7 +107,7 @@ fieldset {
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #e74c3c;
+  background: #e05b49;
   color: #FFF;
   margin: 0 0 5px;
   padding: 10px;
@@ -115,7 +115,7 @@ fieldset {
 }
 
 #contact button[type="submit"]:hover {
-  background: #43A047;
+  background: #e05b49;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
@@ -129,7 +129,7 @@ fieldset {
   cursor: pointer;
   width: 100%;
   border: none;
-  background: #e74c3c;
+  background: #e05b49;
   color: #FFF;
   margin: 0 0 5px;
   padding: 10px;

@@ -56,9 +56,7 @@
                 <strong>Success!</strong> Your quiz has uploaded.
             </div>
 
-            <h3>Create Quiz form</h3>
-            <h4>Fill your quiz into this form</h4>
-
+            <h3>Insert Disease form</h3>
 
             <fieldset class="form-group">
                 <input id="category" name="category" placeholder="ชื่อหัวข้อคำถาม..." type="text" tabindex="1" required>
@@ -89,7 +87,6 @@
             <fieldset class="form-group">
                 <button name="submit" type="submit" id="contact-submit">Submit</button>
             </fieldset>
-            <p class="copyright">Created by <a href="https://dang-ai.herokuapp.com" target="_blank" title="Colorlib">Dang.ai</a></p>
         </form>
 
 
@@ -152,27 +149,6 @@
         });
         $('#alertbox').hide();
 
-
-        window.extAsyncInit = function() {
-            MessengerExtensions.getUserID(function success(uids) {
-                // User ID was successfully obtained.
-                var psid = uids.psid;
-                //document.getElementById('correct-input').value = psid + " : " + uids;
-            }, function error(err, errorMessage) {
-                // Error handling code
-            });
-        };
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'Messenger'));
-
         function GenerateId() {
             var i = function() {
                 return Math.floor(Math.random() * 9);
@@ -213,20 +189,6 @@
             callParseServerCloudCode("createQuizFromQuizForm", data, function(response) {
 
             });
-            /*
-            // for check category name exist
-            var categoryNameData = '{"name":"' + categoryName + '"}';
-            callParseServerCloudCode("createNewCategory", categoryNameData, function(response) {
-
-            });
-            // for check tags name exist
-            for (var i = 0; i < tagArray.length; i++) {
-                var tag = tagArray[i]
-                var tagNameData = '{"name":"' + tag + '"}';
-                callParseServerCloudCode("createNewTag", tagNameData, function(response) {
-
-                });
-            }*/
             var categoryNameData = '{"categories":"' + categoryName + '"}';
             callParseServerCloudCode("createCategoryToDataArray", categoryNameData, function(response) {
 
@@ -243,14 +205,6 @@
             });
             document.getElementById("contact").reset();
             $('#category').val(categoryName);
-            //$('#quiz').val(JSON.stringify(obj));
-            /*
-            MessengerExtensions.requestCloseBrowser(function success() {
-
-            }, function error(err) {
-
-            });
-            */
         }
 
         getAllTag();
@@ -301,7 +255,7 @@
 
         function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://reply-msg-server.herokuapp.com/parse/functions/' + methodName, true);
+            xhr.open('POST', 'https://replyserver.herokuapp.com/parse/functions/' + methodName, true);
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
             xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');

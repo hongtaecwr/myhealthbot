@@ -13,14 +13,13 @@ module.exports = {
       responseMsg(res);
     });
   },
-  testSynonym: function (requestMsg) {
-    return testSynonym(requestMsg);
+  badword: function (requestMsg) {
+    return badword(requestMsg);
   }
 };
 // ------ bot process ------ //
 
 function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
-  testSynonym(requestMsg);
   console.log("callParseServerCloudCode:" + methodName + "\nrequestMsg:" + requestMsg);
   var options = {
     url: 'https://replyserver.herokuapp.com/parse/functions/' + methodName,
@@ -173,18 +172,9 @@ function containsAny(str, substrings) {
 }
 
 
-function testSynonym(messageText) {
+function badword(messageText) {
   var messageData = messageText;
   if (messageData != '' || messageData != null) {
-////////////////////////Synonym////////////////////////////
-    messageData = messageData.replace(/จับไข้/g, 'เป็นไข้');
-    messageData = messageData.replace(/เจ็บป่วย/g, 'เป็นไข้');
-    messageData = messageData.replace(/ป่วย/g, 'เป็นไข้');
-    messageData = messageData.replace(/ไม่สบาย/g, 'เป็นไข้');
-
-    messageData = messageData.replace(/ทานข้าว/g, 'รับประทานอาหาร');
-    messageData = messageData.replace(/กินข้าว/g, 'รับประทานอาหาร');
-    messageData = messageData.replace(/รับประทานข้าว/g, 'รับประทานอาหาร');
 ///////////////////////////คำหยาบ//////////////////////////////////////
     messageData = messageData.replace(/เย็ด/g, 'จุ๊บ');
     messageData = messageData.replace(/เยด/g, 'จุ๊บ');
@@ -219,7 +209,6 @@ function testSynonym(messageText) {
     messageData = messageData.replace(/ตูด/g, 'ก้น');
 
     messageData = messageData.replace(/กู/g, 'เค้า');
-    messageData = messageData.replace(/กุ/g, 'เค้า');
 
     messageData = messageData.replace(/มึง/g, 'เธอ');
     messageData = messageData.replace(/มิง/g, 'เธอ');
