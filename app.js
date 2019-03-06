@@ -146,6 +146,79 @@ function handleEvent(event) {
             }]);
             break;
 
+            case 'วิเคราะห์โรค':
+            case 'รู้สึกป่วย':
+            case 'ตรวจสอบอาการโรค':
+            case 'วิเคราะห์โรคเบื้องต้น':
+            case 'ป่วย':
+            line_client.replyMessage(event.replyToken, [{
+                type: "text",
+                text: "สามารถพิมพ์บอกอาการของโรคเพื่อวิเคราะห์ความน่าจะเป็นในการเกิดโรคหรืออยากทราบอาการของโรคนั้น ๆ ได้โดยการกดเลือกเมนู",
+            },{
+                type: "template",
+                altText: "this is a carousel template",
+                template: {
+                  type: "carousel",
+                  actions: [],
+                  columns: [
+                    {
+                      thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                      title: "อาการเบื้องต้นของโรค",
+                      text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                      actions: [
+                        {
+                          type: "message",
+                          label: "ไอ",
+                          text: "ไอ"
+                        },
+                        {
+                          type: "message",
+                          label: "ปวดศีรษะ",
+                          text: "ปวดศีรษะ"
+                        }
+                      ]
+                    },
+                    {
+                      thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                      title: "อาการเบื้องต้นของโรค",
+                      text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                      actions: [
+                        {
+                          type: "message",
+                          label: "วัณโรค",
+                          text: "วัณโรค"
+                        },
+                        {
+                          type: "message",
+                          label: "โรคเบาหวาน",
+                          text: "โรคเบาหวาน"
+                        }
+                      ]
+                    },
+                    {
+                      thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                      title: "อาการเบื้องต้นของโรค",
+                      text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                      actions: [
+                        {
+                          type: "message",
+                          label: "ไข้หวัดใหญ่",
+                          text: "ไข้หวัดใหญ่"
+                        },
+                        {
+                          type: "message",
+                          label: "ไข้เลือดออก",
+                          text: "ไข้เลือดออก"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+        ]);
+            break;
+
+
             case 'help':
             case 'Help':
             case '#help':
@@ -176,10 +249,9 @@ function handleEvent(event) {
                 break;
                 
 
-                case 'ฮ่องเต้':
-                case 'งง':
+                case 'ไอ':
                 var test1 = event.message.text;
-                if(test1 == 'ฮ่องเต้'){
+                if(test1 == 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "if",
