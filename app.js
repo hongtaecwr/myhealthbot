@@ -177,10 +177,6 @@ function handleEvent(event) {
                 
                 case 'ไข้หวัด':
                 var word = event.message.text;
-                // line_client.replyMessage(event.replyToken, [{
-                //     type: "text",
-                //     text: "ปวดหัวไหม",
-                // }]);
                 if (word == 'ปวดหัว'){
                     line_client.replyMessage(event.replyToken, [{
                         type: "text",
