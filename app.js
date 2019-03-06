@@ -253,10 +253,32 @@ function handleEvent(event) {
                 var test1 = event.message.text;
                 if(test1 == 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
-                    type: "text",
-                    text: "if",
-                
+                        type: "template",
+                        altText: "this is a confirm template",
+                        template: {
+                          type: "confirm",
+                          actions: [
+                            {
+                              type: "message",
+                              label: "จาม",
+                              text: "จาม"
+                            },
+                            {
+                              type: "message",
+                              label: "ไม่จาม",
+                              text: "ไม่จาม"
+                            }
+                          ],
+                          text: "คุณจามหรือไม่ ?"
+                        }
+                      
                 }]);
+                    if(test1== 'จาม'){
+                        line_client.replyMessage(event.replyToken, [{
+                            type: "text",
+                            text: "if in if",
+                        }]); 
+                    }
             }else{
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
