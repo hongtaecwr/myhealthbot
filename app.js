@@ -271,14 +271,20 @@ function handleEvent(event) {
                           ],
                           text: "คุณจามหรือไม่ ?"
                         }
-                      
+                     
                 }]);
                     if(test1== 'จาม'){
-                        line_client.replyMessage(event.replyToken, [{
-                            type: "text",
-                            text: "if in if",
-                        }]); 
-                    }
+                    line_client.replyMessage(event.replyToken, [{
+                        type: "text",
+                        text: "if in if",
+                    }]); 
+                }else{
+                    line_client.replyMessage(event.replyToken, [{
+                        type: "text",
+                        text: "else in if",
+                    }]); 
+                }
+                    
             }else{
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
