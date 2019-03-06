@@ -185,7 +185,6 @@ function badwordFilter(messageText) {
 
     messageData = messageData.replace(/ควย/g, 'จู๋');
     messageData = messageData.replace(/หี/g, 'ฉี');
-    messageData = messageData.replace(/ดอ/g, 'จู๋');
 
     messageData = messageData.replace(/เหี้ย/g, '*#$!');
     messageData = messageData.replace(/เหี่ย/g, '*#$!');
