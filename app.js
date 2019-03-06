@@ -175,21 +175,6 @@ function handleEvent(event) {
                 }]);
                 break;
                 
-                case 'ไข้หวัด':
-                var word = event.message.text;
-                if (word == 'ปวดหัว'){
-                    line_client.replyMessage(event.replyToken, [{
-                        type: "text",
-                        text: "ไอไหม",
-                    }]);
-                }else if(word == 'ไม่ปวดหัว')​{
-                    line_client.replyMessage(event.replyToken, [{
-                        type: "text",
-                        text: "มีน้ำมูกไหม",
-                    }]);
-                }
-
-                break;
 
                 case 'ฮ่องเต้':
                 case 'งง':
