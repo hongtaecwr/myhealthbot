@@ -219,6 +219,9 @@ function handleEvent(event) {
                 break;
                 /////////
                 case 'ไอ':
+                case 'ไม่ไอ':
+                case 'จาม':
+                case 'ไม่จาม':
                 var test1 = event.message.text;
                 if(test1 == 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
@@ -226,18 +229,18 @@ function handleEvent(event) {
                         altText: "this is a buttons template",
                         template: {
                           type: "buttons",
-                          actions: [
-                            {
-                              type: "message",
-                              label: "จาม",
-                              text: "จาม"
-                            },
-                            {
-                              type: "message",
-                              label: "ไม่จาม",
-                              text: "ไม่จาม"
-                            }
-                          ],
+                            actions: [
+                                {
+                                type: "message",
+                                label: "จาม",
+                                text: "จาม"
+                                },
+                                {
+                                type: "message",
+                                label: "ไม่จาม",
+                                text: "ไม่จาม"
+                                }
+                            ],
                           title: "คุณจามหรือไม่",
                           text: "กรุณาตอบคำถาม"
                         }
