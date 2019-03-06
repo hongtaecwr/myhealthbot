@@ -66,8 +66,6 @@ function handleEvent(event) {
             case 'Start':
             case 'ไปเลย':
             case 'เริ่ม':
-                var test1 = event.message.text;
-                if(test1 == 'เริ่มต้น'){
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "สวัสดีครับ ผมเฮลท์บอทเอง",
@@ -79,14 +77,7 @@ function handleEvent(event) {
                     packageId: "2",
                     stickerId: "22"
                 }]);
-            }else{
-                line_client.replyMessage(event.replyToken, [{
-                    type: "text",
-                    text: "else",
-                }]); 
-            }
                 break;
-
             case 'สอนน้องบอทพูด':
             case 'สอนน้อง':
             case 'สอนบอท':
