@@ -253,10 +253,11 @@ function handleEvent(event) {
                 var test1 = event.message.text;
                 if(test1 == 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
+                    {
                         type: "template",
-                        altText: "this is a confirm template",
+                        altText: "this is a buttons template",
                         template: {
-                          type: "confirm",
+                          type: "buttons",
                           actions: [
                             {
                               type: "message",
@@ -269,9 +270,9 @@ function handleEvent(event) {
                               text: "ไม่จาม"
                             }
                           ],
-                          text: "คุณจามหรือไม่ ?"
+                          title: "คุณจามหรือไม่",
+                          text: "กรุณาตอบคำถาม"
                         }
-                     
                 }]);
                     if(test1== 'จาม'){
                     line_client.replyMessage(event.replyToken, [{
