@@ -224,17 +224,20 @@ function handleEvent(event) {
                     line_client.replyMessage(event.replyToken, [{
                         type: "text",
                         text: "จามไหม"
-                    }])
+                    }]);
+                    break; 
                         if (event.message.text == 'จาม') {
                         line_client.replyMessage(event.replyToken, [{
                             type: "text",
                             text: "ปวดหัวไหม"
-                        }])
+                        }]);
+                        break;
                         if (event.message.text == 'ปวดหัว') {
                             line_client.replyMessage(event.replyToken, [{
                                 type: "text",
                                 text: "เป็นไข้หวัดเด้อ"
-                            }])
+                            }]);
+                        break;
                         }
                     }
                 }
