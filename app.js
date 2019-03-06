@@ -219,11 +219,8 @@ function handleEvent(event) {
                 break;
                 /////////
                 case 'ไอ':
-                case 'ไม่ไอ':
-                case 'จาม':
-                case 'ไม่จาม':
                 var test1 = event.message.text;
-                if(test1 == 'ไอ'){
+                if(test1 === 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
                         type: "template",
                         altText: "this is a buttons template",
@@ -244,20 +241,21 @@ function handleEvent(event) {
                           title: "คุณจามหรือไม่",
                           text: "กรุณาตอบคำถาม"
                         }
+                        
                 }]);
-                    if(test1 == 'จาม'){
-                        line_client.replyMessage(event.replyToken, [{
-                            type: "text",
-                            text: "if in if",
-                        }]); 
-                    }else if(test1=='ไม่จาม'){
-                        line_client.replyMessage(event.replyToken, [{
-                            type: "text",
-                            text: "else in if",
-                        }]); 
-                    }
+                    // if(test1 === 'จาม'){
+                    //     line_client.replyMessage(event.replyToken, [{
+                    //         type: "text",
+                    //         text: "if in if",
+                    //     }]); 
+                    // }else if(test1 === 'ไม่จาม'){
+                    //     line_client.replyMessage(event.replyToken, [{
+                    //         type: "text",
+                    //         text: "else in if",
+                    //     }]); 
+                    // }
                     
-            }else{
+            }else if(test1 === 'จาม'){
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "else",
