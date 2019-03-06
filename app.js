@@ -255,7 +255,14 @@ function handleEvent(event) {
                     //     }]); 
                     // }
                     
-            }else if(test1 === 'จาม'){
+            }
+            case 'จาม':
+            if(test1 === 'จาม'){
+                line_client.replyMessage(event.replyToken, [{
+                    type: "text",
+                    text: "jam",
+                }]); 
+            }else{
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "else",
