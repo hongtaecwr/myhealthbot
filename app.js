@@ -230,7 +230,8 @@ function handleEvent(event) {
                             type: "text",
                             text: "ปวดหัวไหม"
                         }]);
-                        if (event.message.text == 'ปวดหัว') {
+                    }
+                        else if (event.message.text == 'ปวดหัว') {
                             line_client.replyMessage(event.replyToken, [{
                                 type: "text",
                                 text: "เป็นไข้หวัดเด้อ"
