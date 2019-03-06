@@ -217,28 +217,6 @@ function handleEvent(event) {
                     }
                 }]);
                 break;
-                /////////
-                case 'ไอ':
-               //var test1 = event.message.text;
-                if(event.message.text == 'ไอ'){
-                    line_client.replyMessage(event.replyToken, [{
-                        type: "text",
-                        text: "จามไหม"
-                    }]);
-                        if (event.message.text == 'จาม') {
-                        line_client.replyMessage(event.replyToken, [{
-                            type: "text",
-                            text: "ปวดหัวไหม"
-                        }]);
-                    }
-                        else if (event.message.text == 'ปวดหัว') {
-                            line_client.replyMessage(event.replyToken, [{
-                                type: "text",
-                                text: "เป็นไข้หวัดเด้อ"
-                            }]);
-                        }
-                    }
-                break;
 
 ////////
             default:
