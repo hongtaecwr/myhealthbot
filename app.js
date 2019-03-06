@@ -259,20 +259,6 @@ function handleEvent(event) {
             }
                 break;
 
-            case 'จาม':
-            var test1 = event.message.text;
-            if(test1 === 'จาม'){
-                    line_client.replyMessage(event.replyToken, [{
-                        type: "text",
-                        text: "jam",
-                    }]); 
-            }else if(test1 === 'ไม่จาม'){
-                         line_client.replyMessage(event.replyToken, [{
-                            type: "text",
-                            text: "else in if",
-                        }]); 
-                     }
-
 ////////
             default:
                 var messageText = event.message.text;
