@@ -219,8 +219,8 @@ function handleEvent(event) {
                 break;
                 /////////
                 case 'ไอ':
-                var test1 = event.message.text;
-                if(test1 === 'ไอ'){
+               //var test1 = event.message.text;
+                if(event.message.text == 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
                         type: "template",
                         altText: "this is a buttons template",
