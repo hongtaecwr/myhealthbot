@@ -191,6 +191,23 @@ function handleEvent(event) {
 
                 break;
 
+                case 'ฮ่องเต้':
+                case 'งง':
+                var test1 = event.message.text;
+                if(test1 == 'ฮ่องเต้'){
+                line_client.replyMessage(event.replyToken, [{
+                    type: "text",
+                    text: "if",
+                
+                }]);
+            }else{
+                line_client.replyMessage(event.replyToken, [{
+                    type: "text",
+                    text: "else",
+                }]); 
+            }
+                break;
+
             default:
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
