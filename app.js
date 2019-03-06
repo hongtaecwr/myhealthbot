@@ -253,7 +253,6 @@ function handleEvent(event) {
                 var test1 = event.message.text;
                 if(test1 == 'ไอ'){
                 line_client.replyMessage(event.replyToken, [{
-                    {
                         type: "template",
                         altText: "this is a buttons template",
                         template: {
