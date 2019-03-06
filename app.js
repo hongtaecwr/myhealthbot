@@ -256,14 +256,14 @@ function handleEvent(event) {
                     // }
                     
             }
-            case 'จาม': 
-            var test1 = event.message.text;
+            break;
+            case 'จาม':
             if(test1 === 'จาม'){
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "jam",
                 }]); 
-            }else{
+            }else if(test1 === 'ไม่จาม'){
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
                     text: "else",
