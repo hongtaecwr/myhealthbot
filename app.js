@@ -238,7 +238,6 @@ function handleEvent(event) {
                             }]);
                         }
                     }
-                }
                 break;
 
 ////////
