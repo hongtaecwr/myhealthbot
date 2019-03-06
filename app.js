@@ -256,7 +256,8 @@ function handleEvent(event) {
                     // }
                     
             }
-            case 'จาม':
+            case 'จาม': 
+            var test1 = event.message.text;
             if(test1 === 'จาม'){
                 line_client.replyMessage(event.replyToken, [{
                     type: "text",
