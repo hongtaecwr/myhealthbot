@@ -51,35 +51,6 @@ app.get('/test', function (req, res) {
 app.get('/json-upload-to-parse', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/json-upload-to-parse.html'));
 });
-app.get('/push/userId=:userId&tags=:tags&limit=:limit', function (req, res) {
-    var userId = req.params.userId;
-    var tags = req.params.tags;
-    var limit = req.params.limit;
-    var data = '{"tags":' + tags + ',"limit":' + limit + ',"getTemp":' + true + '}'
-    console.log("push userId: " + userId + " limit :" + limit + " tags :" + tags + "\ndata:" + data);
-
-    line_client.pushMessage(userId, {
-        type: 'text',
-        text: "กำลังค้นหา Quiz จากการร้องขอ.."
-    })
-        .then(() => {
-            res.json("done");
-        })
-        .catch((err) => {
-            console.error("push error :" + err);
-        });
-
-    _line_postback.getQuizsByTags(data, function (replyData) {
-        line_client.pushMessage(userId, replyData.results)
-            .then(() => {
-                res.json("done");
-            })
-            .catch((err) => {
-                console.error("push error :" + err);
-            });
-    });
-});
-
 ////////////
 
 
@@ -217,8 +188,7 @@ function handleEvent(event) {
               }
         ]);
             break;
-
-
+//////////////////////
             case 'help':
             case 'Help':
             case '#help':
@@ -247,8 +217,7 @@ function handleEvent(event) {
                     }
                 }]);
                 break;
-                
-
+                /////////
                 case 'ไอ':
                 var test1 = event.message.text;
                 if(test1 == 'ไอ'){
@@ -273,17 +242,17 @@ function handleEvent(event) {
                           text: "กรุณาตอบคำถาม"
                         }
                 }]);
-                    if(test1== 'จาม'){
-                    line_client.replyMessage(event.replyToken, [{
-                        type: "text",
-                        text: "if in if",
-                    }]); 
-                }else{
-                    line_client.replyMessage(event.replyToken, [{
-                        type: "text",
-                        text: "else in if",
-                    }]); 
-                }
+                    if(test1 == 'จาม'){
+                        line_client.replyMessage(event.replyToken, [{
+                            type: "text",
+                            text: "if in if",
+                        }]); 
+                    }else if(test1=='ไม่จาม'){
+                        line_client.replyMessage(event.replyToken, [{
+                            type: "text",
+                            text: "else in if",
+                        }]); 
+                    }
                     
             }else{
                 line_client.replyMessage(event.replyToken, [{
@@ -292,7 +261,7 @@ function handleEvent(event) {
                 }]); 
             }
                 break;
-
+////////
             default:
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
