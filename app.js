@@ -496,9 +496,10 @@ function handleEvent(event) {
             break;
 ///////////////////////
             case 'น้ำมูก':
+            case 'มีน้ำมูก':
             line_client.replyMessage(event.replyToken, [{
                 type: "imagemap",
-                baseUrl: "PROVIDE_URL_FROM_YOUR_SERVER",
+                baseUrl: "https://myhealthbot.herokuapp.com/img/imagemap.png",
                 altText: "This is an imagemap",
                 baseSize: {
                   width: 1040,
