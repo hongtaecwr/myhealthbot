@@ -500,7 +500,7 @@ function handleEvent(event) {
             case 'สีน้ำมูกบอกโรค':
             line_client.replyMessage(event.replyToken, [{
                 type: "imagemap",
-                baseUrl: "https://myhealthbot.herokuapp.com/img/imagemap.jpg",
+                baseUrl: "https://myhealthbot.herokuapp.com/img/imagemap.jpg#",
                 altText: "This is an imagemap",
                 baseSize: {
                   width: 1040,
