@@ -113,6 +113,7 @@ function handleEvent(event) {
             case 'ตรวจสอบอาการโรค':
             case 'วิเคราะห์โรคเบื้องต้น':
             case 'ป่วย':
+            case 'ไม่มีน้ำมูก':
             line_client.replyMessage(event.replyToken, [{
                 type: "text",
                 text: "สามารถพิมพ์บอกอาการของโรคเพื่อวิเคราะห์ความน่าจะเป็นในการเกิดโรคหรืออยากทราบอาการของโรคนั้น ๆ ได้โดยการกดเลือกเมนู",
@@ -491,13 +492,36 @@ function handleEvent(event) {
                     }
                     ]
                 }
+              },
+              {
+                type: "template",
+                altText: "this is a buttons template",
+                template: {
+                  type: "buttons",
+                  actions: [
+                    {
+                      type: "message",
+                      label: "บอกสีน้ำมูกกับเรา",
+                      text: "วิเคราะห์สีน้ำมูก"
+                    },
+                    {
+                      type: "message",
+                      label: "ไม่มีน้ำมูก",
+                      text: "ไม่มีน้ำมูก"
+                    }
+                  ],
+                  title: "คุณมีน้ำมูกไหม",
+                  text: "ลองใช้สีของน้ำมูกทำนายความเสี่ยงสิ"
+                }
               }
         ]);
             break;
 ///////////////////////
+///////////////////////
             case 'น้ำมูก':
             case 'มีน้ำมูก':
             case 'สีน้ำมูกบอกโรค':
+            case 'วิเคราะห์สีน้ำมูก':
             line_client.replyMessage(event.replyToken, [{
                 type: "imagemap",
                 baseUrl: "https://myhealthbot.herokuapp.com/img/imagemap.jpg#",
