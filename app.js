@@ -344,6 +344,162 @@ function handleEvent(event) {
                     }
                     ]
                 }
+              },{
+                type: "template",
+                altText: "this is a carousel template",
+                template: {
+                    type: "carousel",
+                    actions: [],
+                    columns: [
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "ทอนซิลอักเสบ",
+                            text: "ทอนซิลอักเสบ"
+                        },
+                        {
+                            type: "message",
+                            label: "ไซนัสอักเสบ",
+                            text: "ไซนัสอักเสบ"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคเกาต์",
+                            text: "โรคเกาต์"
+                        }
+                        ]
+                    },
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "โรคหอบหืด",
+                            text: "โรคหอบหืด"
+                        },
+                        {
+                            type: "message",
+                            label: "อหิวาตกโรค",
+                            text: "อหิวาตกโรค"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคฉี่หนู",
+                            text: "โรคฉี่หนู"
+                        }
+                        ]
+                    },
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "โรคหัด",
+                            text: "โรคหัด"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคซาส์",
+                            text: "โรคซาส์"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคบาดทะยัก",
+                            text: "โรคบาดทะยัก"
+                        }
+                        ]
+                    },
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "โรคปากนกกระจอก",
+                            text: "โรคปากนกกระจอก"
+                        },
+                        {
+                            type: "message",
+                            label: "ภาวะเกล็ดเลือดต่ำ",
+                            text: "ภาวะเกล็ดเลือดต่ำ"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคริดสีดวงทวาร",
+                            text: "โรคริดสีดวงทวาร"
+                        }
+                        ]
+                    },
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "โรคกรวยไตอักเสบ",
+                            text: "โรคกรวยไตอักเสบ"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคน้ำในหูไม่เท่ากัน",
+                            text: "โรคน้ำในหูไม่เท่ากัน"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคพิษสุนัขบ้า",
+                            text: "โรคพิษสุนัขบ้า"
+                        }
+                        ]
+                    },
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "ถุงลมโป่งพอง",
+                            text: "ถุงลมโป่งพอง"
+                        },
+                        {
+                            type: "message",
+                            label: "โรคสะเก็ดเงิน",
+                            text: "โรคสะเก็ดเงิน"
+                        },
+                        {
+                            type: "message",
+                            label: "เริม",
+                            text: "เริม"
+                        }
+                        ]
+                    },
+                    {
+                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                        actions: [
+                        {
+                            type: "message",
+                            label: "หนองในเทียม",
+                            text: "หนองในเทียม"
+                        },
+                        {
+                            type: "message",
+                            label: "ตากุ้งยิง",
+                            text: "ตากุ้งยิง"
+                        },
+                        {
+                            type: "message",
+                            label: "กระเพาะปัสสาวะอักเสบ",
+                            text: "กระเพาะปัสสาวะอักเสบ"
+                        }
+                        ]
+                    }
+                    ]
+                }
               }
         ]);
             break;
