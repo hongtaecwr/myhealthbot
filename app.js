@@ -504,7 +504,7 @@ function handleEvent(event) {
                 altText: "This is an imagemap",
                 baseSize: {
                   width: 1040,
-                  height: 520
+                  height: 585
                 },
                 actions: [
                   {
