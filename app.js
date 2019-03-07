@@ -30,15 +30,6 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
-// app.get('/createquiz', function (req, res) {
-//     res.sendFile(path.join(__dirname + '/public/createQuiz.html'));
-// });
-// app.get('/searchquiz', function (req, res) {
-//     res.sendFile(path.join(__dirname + '/public/searchQuiz.html'));
-// });
-// app.get('/searchquizLine', function (req, res) {
-//     res.sendFile(path.join(__dirname + '/public/searchQuizLine.html'));
-// });
 app.get('/policy', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/policy.html'));
 });
@@ -88,7 +79,7 @@ function handleEvent(event) {
                 }]);
                 break;
             
-
+/////////////////////
             case 'สอนน้องบอทพูด':
             case 'สอนน้อง':
             case 'สอนพูด':
@@ -116,7 +107,7 @@ function handleEvent(event) {
                 }
             }]);
             break;
-
+/////////////////
             case 'วิเคราะห์โรค':
             case 'รู้สึกป่วย':
             case 'ตรวจสอบอาการโรค':
@@ -337,8 +328,8 @@ function handleEvent(event) {
                         },
                         {
                             type: "message",
-                            label: "เพิ่มเติม",
-                            text: "ดูเพิ่มเติม"
+                            label: "ทอนซิลอักเสบ",
+                            text: "ทอนซิลอักเสบ"
                         }
                         ]
                     }
@@ -357,8 +348,8 @@ function handleEvent(event) {
                         actions: [
                         {
                             type: "message",
-                            label: "ทอนซิลอักเสบ",
-                            text: "ทอนซิลอักเสบ"
+                            label: "สีน้ำมูกบอกโรค",
+                            text: "สีน้ำมูกบอกโรค"
                         },
                         {
                             type: "message",
@@ -504,166 +495,89 @@ function handleEvent(event) {
         ]);
             break;
 ///////////////////////
-            case 'เพิ่มเติม':
-
+            case 'น้ำมูก':
             line_client.replyMessage(event.replyToken, [{
-                type: "template",
-                altText: "this is a carousel template",
-                template: {
-                    type: "carousel",
-                    actions: [],
-                    columns: [
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "ทอนซิลอักเสบ",
-                            text: "ทอนซิลอักเสบ"
-                        },
-                        {
-                            type: "message",
-                            label: "ไซนัสอักเสบ",
-                            text: "ไซนัสอักเสบ"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคเกาต์",
-                            text: "โรคเกาต์"
-                        }
-                        ]
+                type: "imagemap",
+                baseUrl: "PROVIDE_URL_FROM_YOUR_SERVER",
+                altText: "This is an imagemap",
+                baseSize: {
+                  width: 1040,
+                  height: 520
+                },
+                actions: [
+                  {
+                    type: "message",
+                    area: {
+                      x: 0,
+                      y: 4,
+                      width: 260,
+                      height: 256
                     },
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "โรคหอบหืด",
-                            text: "โรคหอบหืด"
-                        },
-                        {
-                            type: "message",
-                            label: "อหิวาตกโรค",
-                            text: "อหิวาตกโรค"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคฉี่หนู",
-                            text: "โรคฉี่หนู"
-                        }
-                        ]
+                    text: "น้ำมูกสีใส"
+                  },
+                  {
+                    type: "message",
+                    area: {
+                      x: 262,
+                      y: 7,
+                      width: 260,
+                      height: 248
                     },
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "โรคหัด",
-                            text: "โรคหัด"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคซาส์",
-                            text: "โรคซาส์"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคบาดทะยัก",
-                            text: "โรคบาดทะยัก"
-                        }
-                        ]
+                    text: "น้ำมูกสีเทา"
+                  },
+                  {
+                    type: "message",
+                    area: {
+                      x: 525,
+                      y: 5,
+                      width: 255,
+                      height: 250
                     },
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "โรคปากนกกระจอก",
-                            text: "โรคปากนกกระจอก"
-                        },
-                        {
-                            type: "message",
-                            label: "ภาวะเกล็ดเลือดต่ำ",
-                            text: "ภาวะเกล็ดเลือดต่ำ"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคริดสีดวงทวาร",
-                            text: "โรคริดสีดวงทวาร"
-                        }
-                        ]
+                    text: "น้ำมูกสีเหลือง"
+                  },
+                  {
+                    type: "message",
+                    area: {
+                      x: 784,
+                      y: 9,
+                      width: 254,
+                      height: 511
                     },
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "โรคกรวยไตอักเสบ",
-                            text: "โรคกรวยไตอักเสบ"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคน้ำในหูไม่เท่ากัน",
-                            text: "โรคน้ำในหูไม่เท่ากัน"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคพิษสุนัขบ้า",
-                            text: "โรคพิษสุนัขบ้า"
-                        }
-                        ]
+                    text: "น้ำมูกสีเขียว"
+                  },
+                  {
+                    type: "message",
+                    area: {
+                      x: 520,
+                      y: 256,
+                      width: 258,
+                      height: 262
                     },
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "ถุงลมโป่งพอง",
-                            text: "ถุงลมโป่งพอง"
-                        },
-                        {
-                            type: "message",
-                            label: "โรคสะเก็ดเงิน",
-                            text: "โรคสะเก็ดเงิน"
-                        },
-                        {
-                            type: "message",
-                            label: "เริม",
-                            text: "เริม"
-                        }
-                        ]
+                    text: "น้ำมูกสีขาว"
+                  },
+                  {
+                    type: "message",
+                    area: {
+                      x: 262,
+                      y: 258,
+                      width: 256,
+                      height: 262
                     },
-                    {
-                        thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                        text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                        actions: [
-                        {
-                            type: "message",
-                            label: "หนองในเทียม",
-                            text: "หนองในเทียม"
-                        },
-                        {
-                            type: "message",
-                            label: "ตากุ้งยิง",
-                            text: "ตากุ้งยิง"
-                        },
-                        {
-                            type: "message",
-                            label: "กระเพาะปัสสาวะอักเสบ",
-                            text: "กระเพาะปัสสาวะอักเสบ"
-                        }
-                        ]
-                    }
-                    ]
-                }
+                    text: "น้ำมูกสีแดง"
+                  },
+                  {
+                    type: "message",
+                    area: {
+                      x: 0,
+                      y: 257,
+                      width: 262,
+                      height: 263
+                    },
+                    text: "น้ำมูกสีดำ"
+                  }
+                ]
             }]);
-        break;
+            break;
 //////////////////////
             case 'help':
             case 'Help':
@@ -705,7 +619,7 @@ function handleEvent(event) {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
-                                            text: "น้องบอทยังไม่เข้าใจน๊าาาา"
+                                            text: "บอทยังไม่เข้าใจสิ่งที่คุณพูด กรุณาตรวจสอบประโยคอีกครั้ง หรือบอทอาจจะยังไม่มีคำตอบในระบบ"
                                         }]);
                                     } else {
                                         line_client.replyMessage(event.replyToken, [{
