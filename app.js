@@ -23,7 +23,6 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 });
 
 app.set('view engine', 'ejs');
-
 app.use(express.static('public'));
 
 ////line_client
@@ -42,10 +41,6 @@ app.get('/test', function (req, res) {
 app.get('/json-upload-to-parse', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/json-upload-to-parse.html'));
 });
-////////////
-
-
-
 ///////Handle Event
 function handleEvent(event) {
     var userId = event.source.userId;
@@ -84,6 +79,7 @@ function handleEvent(event) {
             case 'สอนน้อง':
             case 'สอนพูด':
             case 'สอน':
+            case 'สอนบอท':
             line_client.replyMessage(event.replyToken, [{
                 type: "text",
                 text: "สามารถสอนโดยวิธีการดังนี้",
