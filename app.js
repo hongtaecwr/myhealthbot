@@ -104,7 +104,23 @@ function handleEvent(event) {
                         "uri": "https://myhealthbot.herokuapp.com/bot-train"
                     }]
                 }
-            }]);
+            },
+            {
+                type: "template",
+                altText: "Synonym",
+                template: {
+                    type: "buttons",
+                    title: "เพิ่มคำพ้องความหมาย",
+                    text: "แค่กดปุ่มด้านล่าง",
+                    actions: [{
+                        "type": "uri",
+                        "label": "สอนบอทให้พูด",
+                        "uri": "https://myhealthbot.herokuapp.com/synonym"
+                    }]
+                }
+            }
+        
+        ]);
             break;
 /////////////////
             case 'วิเคราะห์โรค':
