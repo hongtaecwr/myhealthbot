@@ -35,6 +35,9 @@ app.get('/policy', function (req, res) {
 app.get('/bot-train', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/bottrain.html'));
 });
+app.get('/synonym', function (req, res) {
+    res.sendFile(path.join(__dirname + '/public/synonym.html'));
+});
 app.get('/test', function (req, res) {
     res.sendFile(path.join(__dirname + '/public/test.html'));
 });
