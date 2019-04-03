@@ -31,20 +31,19 @@
         <div class="text-center">
             <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
         </div>
-        <h1 class="text-center font-weight-normal">ยินดีต้อนรับสู่เมนูสอนบอท</h1>
-      <label id="label-tags" for="ask-tags">คำถาม :</label>
+        <h1 class="text-center font-weight-normal">เพิ่มคำพ้องความหมาย Beta</h1>
+      <label id="label-tags" for="ask-tags">คำทั่วไป :</label>
       <fieldset class="form-group">
         <input type="text" id="ask-tags" tabindex="1" value="" required>
       </fieldset>
-      <label id="label-tags" for="ans-tags">คำตอบ :</label>
+      <label id="label-tags" for="ans-tags">คำพ้องความหมาย :</label>
       <fieldset class="form-group">
         <input type="text" id="ans-tags" tabindex="2" value="" required>
       </fieldset>
 
       <fieldset>
-        <button type="button" onclick="search()" id="contact-submit">สอนบอท !</button>
+        <button type="button" onclick="search()" id="contact-submit">บันทึก !</button>
       </fieldset>
-      <h4 class="text-center font-weight-normal">หมายเหตุ : กรุณาใช้คำสุภาพนะครับ</h4>
     </form>
   </div>
 
@@ -56,19 +55,19 @@
 
 
   <script>
-    var currentAskString = "";
-    var currentAnsString = "";
+    var currentComString = "";
+    var currentSynString = "";
 
     function search() {
-      var msgDatas = currentAskString.split(",");
-      var replyDatas = currentAnsString.split(",");
-      msgDatas = JSON.stringify(msgDatas);
-      replyDatas = JSON.stringify(replyDatas);
-      var data = '{"msg":' + msgDatas + ',"replyMsg":' + replyDatas + '}';
-      callParseServerCloudCode("botTraining", data, function (response) {
+      var commonwordDatas = currentComString.split(",");
+      var synonymwordDatas = currentSynString.split(",");
+      commonwordDatas = JSON.stringify(commonwordDatas);
+      synonymwordDatas = JSON.stringify(synonymwordDatas);
+      var data = '{"common_word":' + commonwordDatas + ',"synonym_word":' + synonymwordDatas + '}';
+      callParseServerCloudCode("addSynonym", data, function (response) {
         if (response) {
           console.log(response);
-          alert("🤖:จำได้แล้ว !");
+          alert("🤖:จำคำพ้องความหมายได้แล้วจ้า !");
           location.reload();
         }
       });
@@ -89,7 +88,7 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่ข้อความที่ต้องการสอน...",
+          placeholder: "ใส่คำทั่วไป ...",
           onChange: function (value) {
             currentAskString = value;
           }
@@ -101,7 +100,7 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่คำตอบ...",
+          placeholder: "ใส่คำพ้องความหมาย",
           onChange: function (value) {
             currentAnsString = value;
           }
