@@ -61,8 +61,8 @@
     function search() {
       var commonwordDatas = currentComString.split(",");
       var synonymwordDatas = currentSynString.split(",");
-      commonwordDatas = JSON.stringify(commonwordDatas);
-      synonymwordDatas = JSON.stringify(synonymwordDatas);
+      /* commonwordDatas = JSON.stringify(commonwordDatas);
+      synonymwordDatas = JSON.stringify(synonymwordDatas); */
       var data = '{"common_word":' + commonwordDatas + ',"synonym_word":' + synonymwordDatas + '}';
       callParseServerCloudCode("addSynonym", data, function (response) {
         if (response) {
