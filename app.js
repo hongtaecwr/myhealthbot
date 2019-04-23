@@ -654,7 +654,7 @@ function handleEvent(event) {
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
                     if (responseMsg == messageText) {
-                        _reply.callCloudCode("getReplyMsg", '{"msg":"' + messageText + '"}', function (response) {
+                        _reply.callCloudCode("findBestReplyMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
                                 _reply.callCloudCode("findBestMsgFromUnknow", '{"msg":"' + messageText + '"}', function (response) {
                                     if (response == "") {
