@@ -79,10 +79,11 @@ function handleEvent(event) {
             
 /////////////////////
             case 'สอนน้องบอทพูด':
-            case 'สอนน้อง':
-            case 'สอนพูด':
-            case 'สอน':
+            case 'เพิ่มประโยคสนทนา':
+            case 'เพิ่มการพูดคุย':
             case 'สอนบอท':
+            case 'เพิ่มข้อความ':
+            case 'เพิ่มการพูด':
             line_client.replyMessage(event.replyToken, [{
                 type: "text",
                 text: "สามารถสอนโดยวิธีการดังนี้",
@@ -93,14 +94,14 @@ function handleEvent(event) {
                 animated: false,
             },{
                 type: "template",
-                altText: "วิธีสอนบอทให้พูด",
+                altText: "วิธีเพิ่มประโยคสนทนา",
                 template: {
                     type: "buttons",
-                    title: "สอนบอทให้พูด",
+                    title: "เพิ่มประโยคสนทนา",
                     text: "วิธีง่ายๆแค่กดปุ่มด้านล่าง",
                     actions: [{
                         "type": "uri",
-                        "label": "สอนบอทให้พูด",
+                        "label": "เพิ่มประโยคสนทนา",
                         "uri": "https://myhealthbot.herokuapp.com/bot-train"
                     }]
                 }
