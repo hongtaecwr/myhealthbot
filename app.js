@@ -625,6 +625,7 @@ function handleEvent(event) {
             case 'Help':
             case '#help':
             case '#Help':
+            case 'วิธีการใช้งาน':
             case 'ขอความช่วยเหลือ':
             case 'ช่วยเหลือ':
             case 'ช่วยด้วย':
