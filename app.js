@@ -86,7 +86,7 @@ function handleEvent(event) {
             case 'เพิ่มการพูด':
             line_client.replyMessage(event.replyToken, [{
                 type: "text",
-                text: "สามารถสอนโดยวิธีการดังนี้",
+                text: "สามารถเพิ่มประโยคสนทนาได้ด้วยวิธีการดังนี้",
             },{
                 type: "image",
                 originalContentUrl: "https://myhealthbot.herokuapp.com/assets/Guide-1.png",
