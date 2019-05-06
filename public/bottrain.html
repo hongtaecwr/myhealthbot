@@ -31,18 +31,18 @@
         <div class="text-center">
             <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
         </div>
-        <h1 class="text-center font-weight-normal">ยินดีต้อนรับสู่เมนูสอนบอท</h1>
-      <label id="label-tags" for="ask-tags">คำถาม :</label>
+        <h1 class="text-center font-weight-normal">ยินดีต้อนรับสู่เมนูเพิ่มประโยคสนทนา</h1>
+      <label id="label-tags" for="ask-tags">ถามบอทว่า :</label>
       <fieldset class="form-group">
         <input type="text" id="ask-tags" tabindex="1" value="" required>
       </fieldset>
-      <label id="label-tags" for="ans-tags">คำตอบ :</label>
+      <label id="label-tags" for="ans-tags">ให้บอทตอบว่า :</label>
       <fieldset class="form-group">
         <input type="text" id="ans-tags" tabindex="2" value="" required>
       </fieldset>
 
       <fieldset>
-        <button type="button" onclick="search()" id="contact-submit">สอนบอท !</button>
+        <button type="button" onclick="search()" id="contact-submit">เพิ่มประโยคสนทนาแล้ว !</button>
       </fieldset>
       <h4 class="text-center font-weight-normal">หมายเหตุ : กรุณาใช้คำสุภาพนะครับ</h4>
     </form>
@@ -89,7 +89,7 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่ข้อความที่ต้องการสอน...",
+          placeholder: "ใส่ประโยคที่ต้องการถาม...",
           onChange: function (value) {
             currentAskString = value;
           }
@@ -101,7 +101,7 @@
           createOnBlur: true,
           delimiter: ',',
           create: true,
-          placeholder: "ใส่คำตอบ...",
+          placeholder: "ใส่คำตอบที่อยากให้บอทตอบ...",
           onChange: function (value) {
             currentAnsString = value;
           }
