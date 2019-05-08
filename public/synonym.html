@@ -91,7 +91,7 @@
     <!-- Facebook Core JavaScript -->
 
     <script>
-        var currentTagsString = "";
+
 
         $('.registerForm').bootstrapValidator({
             message: 'This value is not valid',
@@ -117,41 +117,23 @@
                 },
               }
         }).on('success.form.bv', function(e) {
-            submitquiz();
+          submitfrom();
         });
         $('#alertbox').hide();
 
 
-        function submitquiz() {
-
-            var categoryName = $('#category').val();
-            var tagArray = currentTagsString.split(',');
-            var quiz = $('#quiz').val();
-            var correct = $('#correct').val();
-            var incorrect_1 = $('#incorrect_1').val();
-            var incorrect_2 = $('#incorrect_2').val();
-            var incorrect_3 = $('#incorrect_3').val();
-            var correct_detail = $('#correct_detail').val();
-            var inc = [];
-            inc.push(incorrect_1);
-            if (incorrect_2) {
-              inc.push(incorrect_2);
-            }if (incorrect_3) {
-              inc.push(incorrect_3);
-            }
+        function submitfrom() { 
+            var common_word = $('#common_word').val();
+            var synonym_word = $('#synonym_word').val();
+           
 
             var obj = [{
-                "id": GenerateId(),
-                "category": categoryName,
-                "tag": tagArray,
-                "quiz": quiz,
-                "correct_ans": correct,
-                "incorrect_ans": inc,
-                "correct_detail": correct_detail
+                "common_word": common_word,
+                "synonym_word": synonym_word,
             }];
 
             var data = '{"objects":' + JSON.stringify(obj) + '}';
-            callParseServerCloudCode("createQuizFromQuizForm", data, function(response) {
+            callParseServerCloudCode("addSynonym", data, function(response) {
 
             });
             /*
@@ -174,8 +156,6 @@
             $('#alertbox').fadeTo(2000, 500).slideUp(500, function() {
                 $('#alertbox').hide();
             });
-            document.getElementById("contact").reset();
-            $('#category').val(categoryName);
             //$('#quiz').val(JSON.stringify(obj));
             /*
             MessengerExtensions.requestCloseBrowser(function success() {
