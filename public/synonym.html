@@ -153,34 +153,6 @@
         $('#alertbox').hide();
 
 
-        window.extAsyncInit = function() {
-            MessengerExtensions.getUserID(function success(uids) {
-                // User ID was successfully obtained.
-                var psid = uids.psid;
-                //document.getElementById('correct-input').value = psid + " : " + uids;
-            }, function error(err, errorMessage) {
-                // Error handling code
-            });
-        };
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'Messenger'));
-
-        function GenerateId() {
-            var i = function() {
-                return Math.floor(Math.random() * 9);
-            };
-            return "" + i() + i() + i() + i() + i() + i();
-        }
-
-
         function submitquiz() {
 
             var categoryName = $('#category').val();
@@ -227,14 +199,6 @@
 
                 });
             }*/
-            var categoryNameData = '{"categories":"' + categoryName + '"}';
-            callParseServerCloudCode("createCategoryToDataArray", categoryNameData, function(response) {
-
-            });
-            var tagNameData = '{"tags":"' + tagArray + '"}';
-            callParseServerCloudCode("createTagsToDataArray", tagNameData, function(response) {
-
-            });
             $(this).scrollTop(0);
             $('.registerForm').data('bootstrapValidator').resetForm();
             $('#alertbox').show();
@@ -253,55 +217,10 @@
             */
         }
 
-        getAllTag();
-
-        function getAllTag() {
-            var tags = [];
-            callParseServerCloudCode("getTags", null, function(response) {
-                if (response) {
-                    for (var i = 0; i < response.length; i++) {
-                        var v = JSON.stringify(response[i]);
-                        tags.push({
-                            text: v,
-                            value: v
-                        });
-                    }
-                    // selectize script
-                    $('#input-tags').selectize({
-                        plugins: ['remove_button'],
-                        persist: false,
-                        createOnBlur: true,
-                        delimiter: ',',
-                        create: true,
-                        options: tags,
-                        labelField: "text",
-                        valueField: "value",
-                        onChange: function(value) {
-                            currentTagsString = value;
-                        }
-                    });
-                } else {
-                    $('#input-tags').selectize({
-                        plugins: ['remove_button'],
-                        persist: false,
-                        createOnBlur: true,
-                        delimiter: ',',
-                        create: true,
-                        options: tags,
-                        labelField: "text",
-                        valueField: "value",
-                        onChange: function(value) {
-                            currentTagsString = value;
-                        }
-                    });
-                }
-            });
-        }
-
 
         function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://eggyo-quiz-db.herokuapp.com/parse/functions/' + methodName, true);
+            xhr.open('POST', 'https://replyserver.herokuapp.com/parse/functions/' + methodName, true);
             xhr.setRequestHeader('Content-type', 'application/json');
             xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
             xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
