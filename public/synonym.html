@@ -28,10 +28,10 @@
 
   <div class="container_2">
     <form id="contact" action="" method="post">
-        <div class="text-center">
-            <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
-        </div>
-        <h3 class="text-center font-weight-normal">เพิ่มคำพ้องความหมาย</h3>
+      <div class="text-center">
+        <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
+      </div>
+      <h4 class="text-center font-weight-normal">เพิ่มคำพ้องความหมาย</h4>
       <label id="label-tags" for="ask-tags">คำทั่วไป :</label>
       <fieldset class="form-group">
         <input type="text" id="ask-tags" tabindex="1" value="" required>
@@ -55,15 +55,46 @@
 
 
   <script>
-    var currentComString = "";
-    var currentSynString = "";
+    var currentTagsString = "";
 
-    function search() {
-      var commonwordDatas = currentComString.split(",");
-      var synonymwordDatas = currentSynString.split(",");
-      commonwordDatas = JSON.stringify(commonwordDatas);
-      synonymwordDatas = JSON.stringify(synonymwordDatas);
-      var data = '{"common_word":' + commonwordDatas + ',"synonym_word":' + synonymwordDatas + '}';
+    $('.registerForm').bootstrapValidator({
+      message: 'This value is not valid',
+      feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+        common_word: {
+          validators: {
+            notEmpty: {
+              message: 'กรุณาในคำทั่วไป'
+            }
+          }
+        },
+        synonym_word: {
+          validators: {
+            notEmpty: {
+              message: 'กรุณาใส่คำพ้องความหมาย'
+            }
+          }
+        }
+      }
+    }).on('success.form.bv', function (e) {
+      submitsyn();
+    });
+    $('#alertbox').hide();
+
+    function submitsyn() {
+      var common_word = $('#common_word').val();
+      var synonym_word = $('#synonym_word').val();
+
+      var obj = [{
+        "common_word": common_word,
+        "synonym_word": synonym_word
+      }];
+
+      var data = '{"objects":' + JSON.stringify(obj) + '}';
       callParseServerCloudCode("addSynonym", data, function (response) {
         if (response) {
           console.log(response);
@@ -72,42 +103,14 @@
         }
       });
 
+      $(this).scrollTop(0);
+      $('.registerForm').data('bootstrapValidator').resetForm();
+      $('#alertbox').show();
+      $('#alertbox').fadeTo(2000, 500).slideUp(500, function () {
+        $('#alertbox').hide();
+      });
     }
 
-    getAllTag();
-
-    function getAllTag() {
-
-      setTimeout(function () {
-        document.getElementById("myNav").style.visibility = "hidden";
-
-        // selectize script
-        $('#ask-tags').selectize({
-          plugins: ['remove_button'],
-          persist: false,
-          createOnBlur: true,
-          delimiter: ',',
-          create: true,
-          placeholder: "ใส่คำทั่วไป ...",
-          onChange: function (value) {
-            currentComString = value;
-          }
-        });
-
-        $('#ans-tags').selectize({
-          plugins: ['remove_button'],
-          persist: false,
-          createOnBlur: true,
-          delimiter: ',',
-          create: true,
-          placeholder: "ใส่คำพ้องความหมาย",
-          onChange: function (value) {
-            currentSynString = value;
-          }
-        });
-      }, 1000);
-
-    }
     ////DB Connect///////
     function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
       var xhr = new XMLHttpRequest();
