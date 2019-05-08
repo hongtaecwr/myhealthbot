@@ -118,13 +118,6 @@
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-                category: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Quiz category is required and cannot be empty'
-                        }
-                    }
-                },
                 quiz: {
                     validators: {
                         notEmpty: {
@@ -139,14 +132,7 @@
                         }
                     }
                 },
-                incorrect: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Incorrect answer is required and cannot be empty'
-                        }
-                    }
-                }
-            }
+              }
         }).on('success.form.bv', function(e) {
             submitquiz();
         });
