@@ -59,32 +59,11 @@
             <h3>Create Quiz form</h3>
             <h4>Fill your quiz into this form</h4>
 
-
             <fieldset class="form-group">
-                <input id="category" name="category" placeholder="ชื่อหัวข้อคำถาม..." type="text" tabindex="1" required>
-            </fieldset>
-            <label for="input-tags">Quiz Tags:</label>
-            <fieldset class="form-group">
-                <input type="text" id="input-tags" class="demo-default" tabindex="2">
-            </fieldset>
-
-            <fieldset class="form-group">
-                <textarea id="quiz" name="quiz" placeholder="คำถามของคุณ..." tabindex="3" required autofocus></textarea>
+                <textarea id="quiz" name="common_word" placeholder="คำถามของคุณ..." tabindex="1" required autofocus></textarea>
             </fieldset>
             <fieldset class="form-group">
-                <input id="correct" name="correct" placeholder="คำตอบที่ถูกต้อง..." type="text" tabindex="4" required>
-            </fieldset>
-            <fieldset class="form-group">
-                <input id="incorrect_1" name="incorrect" placeholder="คำตอบที่ผิด..." type="text" tabindex="5" required>
-            </fieldset>
-            <fieldset class="form-group">
-                <input id="incorrect_2" placeholder="คำตอบที่ผิด...(จะใส่หรือไม่ใส่ก็ได้)" type="text" tabindex="6" required>
-            </fieldset>
-            <fieldset class="form-group">
-                <input id="incorrect_3" placeholder="คำตอบที่ผิด...(จะใส่หรือไม่ใส่ก็ได้)" type="text" tabindex="7" required>
-            </fieldset>
-            <fieldset class="form-group">
-                <input id="correct_detail" placeholder="คำอธิบายเฉลย...(จะใส่หรือไม่ใส่ก็ได้)" type="text" tabindex="8" required>
+                <input id="correct" name="synonym_word" placeholder="คำตอบที่ถูกต้อง..." type="text" tabindex="2" required>
             </fieldset>
             <fieldset class="form-group">
                 <button name="submit" type="submit" id="contact-submit">Submit</button>
@@ -118,14 +97,14 @@
                 validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-                quiz: {
+              common_word: {
                     validators: {
                         notEmpty: {
                             message: 'Quiz details is required and cannot be empty'
                         }
                     }
                 },
-                correct: {
+                synonym_word: {
                     validators: {
                         notEmpty: {
                             message: 'Correct answer is required and cannot be empty'
