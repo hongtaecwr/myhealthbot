@@ -96,7 +96,6 @@
       var common_word = $('#common_word').val();
       var synonym_word = $('#synonym_word').val();
 
-
       var obj = [{
         "common_word": common_word,
         "synonym_word": synonym_word,
@@ -125,7 +124,7 @@
       xhr.setRequestHeader('Content-type', 'application/json');
       xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
       xhr.setRequestHeader('X-Parse-Master-Key', 'myMasterKey');
-
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
       xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           var myArr = JSON.parse(this.responseText);
