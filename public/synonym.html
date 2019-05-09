@@ -39,14 +39,15 @@
 
       <label id="label-tags" for="ask-tags">คำทั่วไป :</label>
       <fieldset class="form-group">
-        <input id="common_word-tags" type="text" tabindex="1"  value="" required>
+        <input id="common_word" name="common_word" placeholder="กรุณาใส่คำทั่วไป..." type="text" tabindex="1" required>
       </fieldset>
       <label id="label-tags" for="ask-tags">คำพ้องความหมาย:</label>
       <fieldset class="form-group">
-        <input id="synonym_word-tags" type="text" tabindex="2" value="" required>
+        <input id="synonym_word" name="synonym_word" placeholder="กรุณาใส่คำพ้องความหมาย..." type="text" tabindex="2"
+          required>
       </fieldset>
       <fieldset class="form-group">
-        <button type="button" onclick="submitfrom()" id="contact-submit">Submit</button>
+        <button name="submit" type="button" onclick="submitfrom()" id="contact-submit">Submit</button>
       </fieldset>
       <p class="copyright">กรุณาใช้คำสุภาพนะครับ</p>
     </form>
@@ -62,9 +63,6 @@
 
 
   <script>
-    var common_wordString = "";
-    var synonym_wordString = "";
-
     $('.registerForm').bootstrapValidator({
       message: 'This value is not valid',
       feedbackIcons: {
@@ -95,11 +93,16 @@
 
 
     function submitfrom() {
-    var c_wordDatas = common_wordString.split(",");
-    var sy_wordDatas = synonym_wordString.split(",");
-    c_wordDatas = JSON.stringify(c_wordDatas);
-    sy_wordDatas = JSON.stringify(sy_wordDatas);
-    var data = '{"common_word":' + c_wordDatas + ',"synonym_word":' + sy_wordDatas + '}';
+      var common_word = $('#common_word').val();
+      var synonym_word = $('#synonym_word').val();
+
+
+      var obj = [{
+        "common_word": common_word,
+        "synonym_word": synonym_word,
+      }];
+
+      var data = '{"objects":' + JSON.stringify(obj) + '}';
       callParseServerCloudCode("addSynonym", data, function (response) {
         if (response) {
           console.log(response);
@@ -113,41 +116,6 @@
       $('#alertbox').fadeTo(2000, 500).slideUp(500, function () {
         $('#alertbox').hide();
       });
-    }
-
-    getAllTag();
-
-    function getAllTag() {
-
-      setTimeout(function () {
-        document.getElementById("myNav").style.visibility = "hidden";
-
-        // selectize script
-        $('#common_word-tags').selectize({
-          plugins: ['remove_button'],
-          persist: false,
-          createOnBlur: true,
-          delimiter: ',',
-          create: true,
-          placeholder: "ใส่ประโยคที่ต้องการถาม...",
-          onChange: function (value) {
-            common_wordString = value;
-          }
-        });
-
-        $('#synonym_word-tags').selectize({
-          plugins: ['remove_button'],
-          persist: false,
-          createOnBlur: true,
-          delimiter: ',',
-          create: true,
-          placeholder: "ใส่คำตอบที่อยากให้บอทตอบ...",
-          onChange: function (value) {
-            synonym_wordString = value;
-          }
-        });
-      }, 1000);
-
     }
 
 
