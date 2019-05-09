@@ -10,28 +10,28 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=0">
 
   <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
-    <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
+  <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
 
-    <title>เพิ่มคำพ้องความหมาย</title>
+  <title>เพิ่มคำพ้องความหมาย</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/theme2.css" rel="stylesheet">
-    <link href="css/selectize.bootstrap3.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- Custom CSS -->
+  <link href="css/theme2.css" rel="stylesheet">
+  <link href="css/selectize.bootstrap3.css" rel="stylesheet">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -42,148 +42,153 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <!-- Navigation -->
+  <!-- Navigation -->
 
 
 
 
-    <div class="container">
+  <div class="container">
 
 
-        <form id="contact" class="registerForm">
+    <form id="contact" class="registerForm">
 
-            <div class="alert alert-success" id="alertbox">
-                <strong>Success!</strong> Your Synonym has uploaded.
-            </div>
+      <div class="alert alert-success" id="alertbox">
+        <strong>Success!</strong> Your Synonym has uploaded.
+      </div>
 
-            <div class="text-center">
-              <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
-          </div>
-          <h3 class="text-center font-weight-normal">ยินดีต้อนรับสู่เมนูเพิ่มคำพ้องความหมาย</h3>
-          
-          <label id="label-tags" for="ask-tags">คำทั่วไป :</label>
-            <fieldset class="form-group">
-              <input id="common_word" name="common_word" placeholder="กรุณาใส่คำทั่วไป..." type="text" tabindex="1" required>
-          </fieldset>
-          <label id="label-tags" for="ask-tags">คำพ้องความหมาย:</label>
-            <fieldset class="form-group">
-                <input id="synonym_word" name="synonym_word" placeholder="กรุณาใส่คำพ้องความหมาย..." type="text" tabindex="2" required>
-            </fieldset>
-            <fieldset class="form-group">
-                <button name="submit" type="submit" id="contact-submit">Submit</button>
-            </fieldset>
-            <p class="copyright">กรุณาใช้คำสุภาพนะครับ</p>
-        </form>
+      <div class="text-center">
+        <img src="img/icon.png" class="text-center" alt="Responsive image" width="90" height="90">
+      </div>
+      <h3 class="text-center font-weight-normal">ยินดีต้อนรับสู่เมนูเพิ่มคำพ้องความหมาย</h3>
 
-
-    </div>
+      <label id="label-tags" for="ask-tags">คำทั่วไป :</label>
+      <fieldset class="form-group">
+        <input id="common_word" name="common_word" placeholder="กรุณาใส่คำทั่วไป..." type="text" tabindex="1" required>
+      </fieldset>
+      <label id="label-tags" for="ask-tags">คำพ้องความหมาย:</label>
+      <fieldset class="form-group">
+        <input id="synonym_word" name="synonym_word" placeholder="กรุณาใส่คำพ้องความหมาย..." type="text" tabindex="2"
+          required>
+      </fieldset>
+      <fieldset class="form-group">
+        <button name="submit" type="submit" id="contact-submit">Submit</button>
+      </fieldset>
+      <p class="copyright">กรุณาใช้คำสุภาพนะครับ</p>
+    </form>
 
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/standalone/selectize.min.js"></script>
-    <script src="js/bootstrapValidator.min.js"></script>
+  </div>
 
 
-    <!-- Facebook Core JavaScript -->
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
 
-    <script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/standalone/selectize.min.js"></script>
+  <script src="js/bootstrapValidator.min.js"></script>
 
 
-        $('.registerForm').bootstrapValidator({
-            message: 'This value is not valid',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-              common_word: {
-                    validators: {
-                        notEmpty: {
-                            message: 'คำทั่วไป เว้นว่างไม่ได้นะครับ'
-                        }
-                    }
-                },
-                synonym_word: {
-                    validators: {
-                        notEmpty: {
-                            message: 'คำพ้องความหมาย เว้นว่างไม่ได้นะครับ'
-                        }
-                    }
-                },
-              }
-        }).on('success.form.bv', function(e) {
-          submitfrom();
-        });
+  <!-- Facebook Core JavaScript -->
+
+  <script>
+
+
+    $('.registerForm').bootstrapValidator({
+      message: 'This value is not valid',
+      feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+      },
+      fields: {
+        common_word: {
+          validators: {
+            notEmpty: {
+              message: 'คำทั่วไป เว้นว่างไม่ได้นะครับ'
+            }
+          }
+        },
+        synonym_word: {
+          validators: {
+            notEmpty: {
+              message: 'คำพ้องความหมาย เว้นว่างไม่ได้นะครับ'
+            }
+          }
+        },
+      }
+    }).on('success.form.bv', function (e) {
+      submitfrom();
+    });
+    $('#alertbox').hide();
+
+
+    function submitfrom() {
+      var common_word = $('#common_word').val();
+      var synonym_word = $('#synonym_word').val();
+
+
+      var obj = [{
+        "common_word": common_word,
+        "synonym_word": synonym_word,
+      }];
+
+      var data = '{"objects":' + JSON.stringify(obj) + '}';
+      callParseServerCloudCode("addSynonym", data, function (response) {
+        if (response) {
+          console.log(response);
+          alert("🤖:จำได้แล้ว !");
+          location.reload();
+        }
+      });
+      /*
+      // for check category name exist
+      var categoryNameData = '{"name":"' + categoryName + '"}';
+      callParseServerCloudCode("createNewCategory", categoryNameData, function(response) {
+
+      });
+      // for check tags name exist
+      for (var i = 0; i < tagArray.length; i++) {
+          var tag = tagArray[i]
+          var tagNameData = '{"name":"' + tag + '"}';
+          callParseServerCloudCode("createNewTag", tagNameData, function(response) {
+
+          });
+      }*/
+      $(this).scrollTop(0);
+      $('.registerForm').data('bootstrapValidator').resetForm();
+      $('#alertbox').show();
+      $('#alertbox').fadeTo(2000, 500).slideUp(500, function () {
         $('#alertbox').hide();
+      });
+      //$('#quiz').val(JSON.stringify(obj));
+      /*
+      MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {
+
+      });
+      */
+    }
 
 
-        function submitfrom() { 
-            var common_word = $('#common_word').val();
-            var synonym_word = $('#synonym_word').val();
-           
+    function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'https://replyserver.herokuapp.com/parse/functions/' + methodName, true);
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
+      xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
 
-            var obj = [{
-                "common_word": common_word,
-                "synonym_word": synonym_word,
-            }];
-
-            var data = '{"objects":' + JSON.stringify(obj) + '}';
-            callParseServerCloudCode("addSynonym", data, function(response) {
-
-            });
-            /*
-            // for check category name exist
-            var categoryNameData = '{"name":"' + categoryName + '"}';
-            callParseServerCloudCode("createNewCategory", categoryNameData, function(response) {
-
-            });
-            // for check tags name exist
-            for (var i = 0; i < tagArray.length; i++) {
-                var tag = tagArray[i]
-                var tagNameData = '{"name":"' + tag + '"}';
-                callParseServerCloudCode("createNewTag", tagNameData, function(response) {
-
-                });
-            }*/
-            $(this).scrollTop(0);
-            $('.registerForm').data('bootstrapValidator').resetForm();
-            $('#alertbox').show();
-            $('#alertbox').fadeTo(2000, 500).slideUp(500, function() {
-                $('#alertbox').hide();
-            });
-            //$('#quiz').val(JSON.stringify(obj));
-            /*
-            MessengerExtensions.requestCloseBrowser(function success() {
-
-            }, function error(err) {
-
-            });
-            */
+      xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var myArr = JSON.parse(this.responseText);
+          responseMsg(myArr.result);
         }
+      };
 
-
-        function callParseServerCloudCode(methodName, requestMsg, responseMsg) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://replyserver.herokuapp.com/parse/functions/' + methodName, true);
-            xhr.setRequestHeader('Content-type', 'application/json');
-            xhr.setRequestHeader('X-Parse-Application-Id', 'myAppId');
-            xhr.setRequestHeader('X-Parse-REST-API-Key', 'myRestKey');
-
-            xhr.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var myArr = JSON.parse(this.responseText);
-                    responseMsg(myArr.result);
-                }
-            };
-
-            xhr.send(requestMsg);
-        }
-    </script>
+      xhr.send(requestMsg);
+    }
+  </script>
 
 </body>
 
