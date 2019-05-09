@@ -95,7 +95,7 @@
     function submitfrom() {
       var common_word = $('#common_word').val();
       var synonym_word = $('#synonym_word').val();
-      var data = '{"common_word":' + JSON.stringify(common_word) + ',"synonym_word":' + JSON.stringify(synonym_word) + '}';
+      var data = '{"common_word":' + common_word+ ',"synonym_word":' + synonym_word + '}';
       callParseServerCloudCode("addSynonym", data, function (response) {
         if (response) {
           console.log(response);
