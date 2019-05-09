@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +8,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=0">
-
-  <!--  <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <meta name="description" content="">
   <meta name="author" content="">
-  <!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
-  <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
 
   <title>เพิ่มคำพ้องความหมาย</title>
@@ -29,24 +20,9 @@
   <!-- Custom CSS -->
   <link href="css/theme2.css" rel="stylesheet">
   <link href="css/selectize.bootstrap3.css" rel="stylesheet">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 
-<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-  <!-- Navigation -->
-
-
-
-
   <div class="container">
 
 
@@ -75,10 +51,7 @@
       </fieldset>
       <p class="copyright">กรุณาใช้คำสุภาพนะครับ</p>
     </form>
-
-
   </div>
-
 
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
@@ -89,11 +62,7 @@
   <script src="js/bootstrapValidator.min.js"></script>
 
 
-  <!-- Facebook Core JavaScript -->
-
   <script>
-
-
     $('.registerForm').bootstrapValidator({
       message: 'This value is not valid',
       feedbackIcons: {
@@ -141,34 +110,12 @@
           location.reload();
         }
       });
-      /*
-      // for check category name exist
-      var categoryNameData = '{"name":"' + categoryName + '"}';
-      callParseServerCloudCode("createNewCategory", categoryNameData, function(response) {
-
-      });
-      // for check tags name exist
-      for (var i = 0; i < tagArray.length; i++) {
-          var tag = tagArray[i]
-          var tagNameData = '{"name":"' + tag + '"}';
-          callParseServerCloudCode("createNewTag", tagNameData, function(response) {
-
-          });
-      }*/
       $(this).scrollTop(0);
       $('.registerForm').data('bootstrapValidator').resetForm();
       $('#alertbox').show();
       $('#alertbox').fadeTo(2000, 500).slideUp(500, function () {
         $('#alertbox').hide();
       });
-      //$('#quiz').val(JSON.stringify(obj));
-      /*
-      MessengerExtensions.requestCloseBrowser(function success() {
-
-      }, function error(err) {
-
-      });
-      */
     }
 
 
