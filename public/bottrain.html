@@ -65,7 +65,7 @@
       msgDatas = JSON.stringify(msgDatas);
       replyDatas = JSON.stringify(replyDatas);
       var data = '{"msg":' + msgDatas + ',"replyMsg":' + replyDatas + '}';
-      callParseServerCloudCode("botTraining", data, function (response) {
+      callParseServerCloudCode("addSentence", data, function (response) {
         if (response) {
           console.log(response);
           alert("🤖:จำได้แล้ว !");
