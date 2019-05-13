@@ -76,6 +76,25 @@ function handleEvent(event) {
                     stickerId: "22"
                 }]);
                 break;
+            /////////////////////
+            case '#คำพ้องความหมาย':
+            case '#คำพ้อง':
+            case '#synonym':
+                line_client.replyMessage(event.replyToken, [{
+                    type: "template",
+                    altText: "Synonym",
+                    template: {
+                        type: "buttons",
+                        title: "เพิ่มคำพ้องความหมาย",
+                        text: "แค่กดปุ่มด้านล่าง",
+                        actions: [{
+                            "type": "uri",
+                            "label": "เพิ่มคำพ้องความหมาย",
+                            "uri": "https://myhealthbot.herokuapp.com/synonym"
+                        }]
+                    }
+                }]);
+                break;
 
             /////////////////////
             case 'สอนน้องบอทพูด':
@@ -106,22 +125,7 @@ function handleEvent(event) {
                             "uri": "https://myhealthbot.herokuapp.com/bot-train"
                         }]
                     }
-                },
-                {
-                    type: "template",
-                    altText: "Synonym",
-                    template: {
-                        type: "buttons",
-                        title: "เพิ่มคำพ้องความหมาย",
-                        text: "แค่กดปุ่มด้านล่าง",
-                        actions: [{
-                            "type": "uri",
-                            "label": "เพิ่มคำพ้องความหมาย",
-                            "uri": "https://myhealthbot.herokuapp.com/synonym"
-                        }]
-                    }
                 }
-
                 ]);
                 break;
             /////////////////
@@ -622,7 +626,7 @@ function handleEvent(event) {
                     ]
                 }]);
                 break;
-            //////////////////////
+            ////////////////////// 
             case 'help':
             case 'Help':
             case '#help':
