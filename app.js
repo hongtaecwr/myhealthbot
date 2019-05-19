@@ -671,9 +671,9 @@ function handleEvent(event) {
                                         type: "text",
                                         text: _reply.badwordFilter(response)
                                     }]);
-                                    var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
+/*                                     var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
                                     _reply.callCloudCode("createUnknowMsg", data, function (response) {
-                                    });
+                                    }); */
                                 }
                             });
                     } else {
