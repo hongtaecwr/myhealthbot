@@ -644,7 +644,7 @@ function handleEvent(event) {
                 },
                 {
                     type: "text",
-                    text : "ข้อแนะนำในการเข้าเมนูด่วน\nหากต้องการเข้า\nเมนูตรวจสอบปริมาณแคลอรี่ให้พิมพ์ #อาหาร\nเมนูวิเคราะห์โรคให้พิมพ์ #ป่วย\nเมนูเพิ่มประโยคสนทนาให้พิมพ์ #เพิ่ม\nเมนูช่วยเหลือให้พิมพ์ #ช่วย"
+                    text: "ข้อแนะนำในการเข้าเมนูด่วน\nหากต้องการเข้า\nเมนูตรวจสอบปริมาณแคลอรี่ให้พิมพ์ #อาหาร\nเมนูวิเคราะห์โรคให้พิมพ์ #ป่วย\nเมนูเพิ่มประโยคสนทนาให้พิมพ์ #เพิ่ม\nเมนูช่วยเหลือให้พิมพ์ #ช่วย"
                 }]);
                 break;
 
@@ -655,35 +655,28 @@ function handleEvent(event) {
                     if (responseMsg == messageText) {
                         _reply.callCloudCode("FindBestMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
-                                    if (response == "") {
-                                        line_client.replyMessage(event.replyToken, [{
-                                            type: "text",
-                                            text: "บอทยังไม่เข้าใจสิ่งที่คุณพูด กรุณาตรวจสอบประโยคอีกครั้ง หรือบอทอาจจะยังไม่มีคำตอบในระบบ"
-                                        }]);
-                                    } else {
-                                        line_client.replyMessage(event.replyToken, [{
-                                            type: "text",
-                                            text: _reply.badwordFilter(response)
-                                        }]);
-                                        var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
-                                        _reply.callCloudCode("createUnknowMsg", data, function (response) {
-                                        });
-                                    }
-                            
-                            } else if (responseMsg.substring(0, 5) == '#PUSH') {
-                                var msg = responseMsg.replace("#PUSH", "");
-                                var obj = JSON.parse(msg);
-                                line_client.pushMessage(obj.userId, {
-                                    type: "text",
-                                    text: obj.replyMsg[0]
-                                });
-                            } else {
-                                line_client.replyMessage(event.replyToken, [{
-                                    type: "text",
-                                    text: _reply.badwordFilter(response)
-                                }]);
-                            }
-                        });
+                                if (response == "") {
+                                    line_client.replyMessage(event.replyToken, [{
+                                        type: "text",
+                                        text: "บอทยังไม่เข้าใจสิ่งที่คุณพูด กรุณาตรวจสอบประโยคอีกครั้ง หรือบอทอาจจะยังไม่มีคำตอบในระบบ"
+                                    }]);
+                                } else if (responseMsg.substring(0, 5) == '#PUSH') {
+                                    var msg = responseMsg.replace("#PUSH", "");
+                                    var obj = JSON.parse(msg);
+                                    line_client.pushMessage(obj.userId, {
+                                        type: "text",
+                                        text: obj.replyMsg[0]
+                                    });
+                                } else {
+                                    line_client.replyMessage(event.replyToken, [{
+                                        type: "text",
+                                        text: _reply.badwordFilter(response)
+                                    }]);
+                                    var data = '{"msg":[' + JSON.stringify(messageText) + '],"replyMsg":[' + JSON.stringify(response) + ']}';
+                                    _reply.callCloudCode("createUnknowMsg", data, function (response) {
+                                    });
+                                }
+                            });
                     } else {
                         line_client.replyMessage(event.replyToken, [{
                             type: "text",
