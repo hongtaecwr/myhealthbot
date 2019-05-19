@@ -655,7 +655,6 @@ function handleEvent(event) {
                     if (responseMsg == messageText) {
                         _reply.callCloudCode("getReplyMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
-                                _reply.callCloudCode("findBestMsgFromUnknow", '{"msg":"' + messageText + '"}', function (response) {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
@@ -670,7 +669,7 @@ function handleEvent(event) {
                                         _reply.callCloudCode("createUnknowMsg", data, function (response) {
                                         });
                                     }
-                                });
+                            
                             } else if (responseMsg.substring(0, 5) == '#PUSH') {
                                 var msg = responseMsg.replace("#PUSH", "");
                                 var obj = JSON.parse(msg);
