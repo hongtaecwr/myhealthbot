@@ -653,7 +653,7 @@ function handleEvent(event) {
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
                     if (responseMsg == messageText) {
-                        _reply.callCloudCode("compareMsg", '{"msg":"' + messageText + '"}', function (response) {
+                        _reply.callCloudCode("FindBestMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
                                     if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
