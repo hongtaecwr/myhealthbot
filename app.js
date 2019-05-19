@@ -655,19 +655,18 @@ function handleEvent(event) {
                     if (responseMsg == messageText) {
                         _reply.callCloudCode("FindBestMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
-                                if (response == "") {
                                     line_client.replyMessage(event.replyToken, [{
                                         type: "text",
                                         text: "บอทยังไม่เข้าใจสิ่งที่คุณพูด กรุณาตรวจสอบประโยคอีกครั้ง หรือบอทอาจจะยังไม่มีคำตอบในระบบ"
                                     }]);
-                                } else if (responseMsg.substring(0, 5) == '#PUSH') {
+                            } else if (responseMsg.substring(0, 5) == '#PUSH') {
                                     var msg = responseMsg.replace("#PUSH", "");
                                     var obj = JSON.parse(msg);
                                     line_client.pushMessage(obj.userId, {
                                         type: "text",
                                         text: obj.replyMsg[0]
                                     });
-                                } else {
+                            } else {
                                     line_client.replyMessage(event.replyToken, [{
                                         type: "text",
                                         text: _reply.badwordFilter(response)
