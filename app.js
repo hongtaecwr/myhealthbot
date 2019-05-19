@@ -653,10 +653,8 @@ function handleEvent(event) {
                 var messageText = event.message.text;
                 _reply.processMessage(messageText, function (responseMsg) {
                     if (responseMsg == messageText) {
-                        _reply.callCloudCode("findBestMsgFromUnknow", '{"msg":"' + messageText + '"}', function (response) {
+                        _reply.callCloudCode("getReplyMsg", '{"msg":"' + messageText + '"}', function (response) {
                             if (response == "") {
-                                _reply.callCloudCode("findBestMsgFromUnknow", '{"msg":"' + messageText + '"}', function (response) {
-                                    if (response == "") {
                                         line_client.replyMessage(event.replyToken, [{
                                             type: "text",
                                             text: "บอทยังไม่เข้าใจสิ่งที่คุณพูด กรุณาตรวจสอบประโยคอีกครั้ง หรือบอทอาจจะยังไม่มีคำตอบในระบบ"
