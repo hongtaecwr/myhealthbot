@@ -173,25 +173,9 @@ function handleEvent(event) {
                                 actions: [
                                     {
                                         type: "message",
-                                        label: "เอ็นฝ่าเท้าอักเสบ",
-                                        text: "เอ็นฝ่าเท้าอักเสบ"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "นิ้วล๊อค",
-                                        text: "นิ้วล๊อค"
-                                    },
-                                    {
-                                        type: "message",
                                         label: "ไข้เลือดออก",
                                         text: "ไข้เลือดออก"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
+                                    },
                                     {
                                         type: "message",
                                         label: "เบาหวาน",
@@ -199,13 +183,8 @@ function handleEvent(event) {
                                     },
                                     {
                                         type: "message",
-                                        label: "โรคกระเพาะอาหาร",
-                                        text: "โรคกระเพาะอาหาร"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "ความดันโลหิตสูง",
-                                        text: "ความดันโลหิตสูง"
+                                        label: "โรคกระเพาะ",
+                                        text: "โรคกระเพาะ"
                                     }
                                 ]
                             },
@@ -236,67 +215,30 @@ function handleEvent(event) {
                                 actions: [
                                     {
                                         type: "message",
-                                        label: "ปอดอักเสบ(ปอดบวม)",
-                                        text: "ปอดอักเสบ(ปอดบวม)"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคหลอดเลือดหัวใจ",
-                                        text: "โรคหลอดเลือดหัวใจ"
+                                        label: "ปอดอักเสบ",
+                                        text: "ปอดอักเสบ"
                                     },
                                     {
                                         type: "message",
                                         label: "ลมพิษ",
                                         text: "ลมพิษ"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
+                                    },
                                     {
                                         type: "message",
                                         label: "กรดไหลย้อน",
                                         text: "กรดไหลย้อน"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "เจ็บคอ",
-                                        text: "เจ็บคอ"
-                                    },
+                                    }
+                                ]
+                            },
+                            {
+                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
+                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
+                                actions: [
                                     {
                                         type: "message",
                                         label: "ไส้ติ่งอักเสบ",
                                         text: "ไส้ติ่งอักเสบ"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
-                                    {
-                                        type: "message",
-                                        label: "โรคหลอดเลือดหัวใจ",
-                                        text: "โรคหลอดเลือดหัวใจ"
                                     },
-                                    {
-                                        type: "message",
-                                        label: "โรคไวรัสตับอักเสบ B",
-                                        text: "โรคไวรัสตับอักเสบ B"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคหลอดเลือดสมอง",
-                                        text: "โรคหลอดเลือดสมอง"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
                                     {
                                         type: "message",
                                         label: "ไทรอยด์",
@@ -304,87 +246,10 @@ function handleEvent(event) {
                                     },
                                     {
                                         type: "message",
-                                        label: "ปอดอุดกั้นเรื้อรัง",
-                                        text: "โรคปอดอุดกั้นเรื้อรัง"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคหัวใจ",
-                                        text: "โรคหัวใจ"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
-                                    {
-                                        type: "message",
-                                        label: "โรคลมพิษ",
-                                        text: "โรคลมพิษ"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "ซิฟิลิส",
-                                        text: "ซิฟิลิส"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคขาดวิตามินซี",
-                                        text: "โรคขาดวิตามินซี"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
-                                    {
-                                        type: "message",
-                                        label: "โรคหนองในแท้",
-                                        text: "โรคหนองในแท้"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "เบาจืด",
-                                        text: "เบาจืด"
-                                    },
-                                    {
-                                        type: "message",
                                         label: "ทอนซิลอักเสบ",
                                         text: "ทอนซิลอักเสบ"
                                     }
                                 ]
-                            }
-                        ]
-                    }
-                }, {
-                    type: "template",
-                    altText: "this is a carousel template",
-                    template: {
-                        type: "carousel",
-                        actions: [],
-                        columns: [
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
-                                    {
-                                        type: "message",
-                                        label: "สีน้ำมูกบอกโรค",
-                                        text: "สีน้ำมูกบอกโรค"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "ไซนัสอักเสบ",
-                                        text: "ไซนัสอักเสบ"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคเกาต์",
-                                        text: "โรคเกาต์"
-                                    }
-                                ]
                             },
                             {
                                 thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
@@ -392,18 +257,18 @@ function handleEvent(event) {
                                 actions: [
                                     {
                                         type: "message",
-                                        label: "โรคหอบหืด",
-                                        text: "โรคหอบหืด"
+                                        label: "ไซนัสอีกเสบ",
+                                        text: "ไซนัสอีกเสบ"
+                                    },
+                                    {
+                                        type: "message",
+                                        label: "หอบหืด",
+                                        text: "หอบหืด"
                                     },
                                     {
                                         type: "message",
                                         label: "อหิวาตกโรค",
                                         text: "อหิวาตกโรค"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคฉี่หนู",
-                                        text: "โรคฉี่หนู"
                                     }
                                 ]
                             },
@@ -413,18 +278,18 @@ function handleEvent(event) {
                                 actions: [
                                     {
                                         type: "message",
-                                        label: "โรคหัด",
-                                        text: "โรคหัด"
+                                        label: "ฉี่หนู",
+                                        text: "ฉี่หนู"
                                     },
                                     {
                                         type: "message",
-                                        label: "โรคซาส์",
-                                        text: "โรคซาส์"
+                                        label: "บาดทะยัก",
+                                        text: "บาดทะยัก"
                                     },
                                     {
                                         type: "message",
-                                        label: "โรคบาดทะยัก",
-                                        text: "โรคบาดทะยัก"
+                                        label: "ปากนกกระจอก",
+                                        text: "ปากนกกระจอก"
                                     }
                                 ]
                             },
@@ -434,39 +299,18 @@ function handleEvent(event) {
                                 actions: [
                                     {
                                         type: "message",
-                                        label: "โรคปากนกกระจอก",
-                                        text: "โรคปากนกกระจอก"
+                                        label: "ริดสีดวง",
+                                        text: "ริดสีดวง"
                                     },
                                     {
                                         type: "message",
-                                        label: "ภาวะเกล็ดเลือดต่ำ",
-                                        text: "ภาวะเกล็ดเลือดต่ำ"
+                                        label: "น้ำในหูไม่เท่ากัน",
+                                        text: "น้ำในหูไม่เท่ากัน"
                                     },
                                     {
                                         type: "message",
-                                        label: "โรคริดสีดวงทวาร",
-                                        text: "โรคริดสีดวงทวาร"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
-                                    {
-                                        type: "message",
-                                        label: "โรคกรวยไตอักเสบ",
-                                        text: "โรคกรวยไตอักเสบ"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคน้ำในหูไม่เท่ากัน",
-                                        text: "โรคน้ำในหูไม่เท่ากัน"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคพิษสุนัขบ้า",
-                                        text: "โรคพิษสุนัขบ้า"
+                                        label: "พิษสุนัขบ้า",
+                                        text: "พิษสุนัขบ้า"
                                     }
                                 ]
                             },
@@ -478,27 +322,6 @@ function handleEvent(event) {
                                         type: "message",
                                         label: "ถุงลมโป่งพอง",
                                         text: "ถุงลมโป่งพอง"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "โรคสะเก็ดเงิน",
-                                        text: "โรคสะเก็ดเงิน"
-                                    },
-                                    {
-                                        type: "message",
-                                        label: "เริม",
-                                        text: "เริม"
-                                    }
-                                ]
-                            },
-                            {
-                                thumbnailImageUrl: "https://myhealthbot.herokuapp.com/img/disease_1.jpg",
-                                text: "เพียงเลือกโรคด้านล่างเพื่อทราบข้อมูลอาการเบื้องต้น",
-                                actions: [
-                                    {
-                                        type: "message",
-                                        label: "หนองในเทียม",
-                                        text: "หนองในเทียม"
                                     },
                                     {
                                         type: "message",
